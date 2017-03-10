@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LookingGlass
 {
-    public partial class Form1 : Form
+    public partial class EmployerMaintenance : Form
     {
-        public Form1()
+        public EmployerMaintenance()
         {
             InitializeComponent();
         }
