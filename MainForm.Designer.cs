@@ -106,6 +106,7 @@
             this.btnCandidate.TabIndex = 1;
             this.btnCandidate.Text = "Candidate Maintenance";
             this.btnCandidate.UseVisualStyleBackColor = true;
+            this.btnCandidate.Click += new System.EventHandler(this.btnCandidate_Click);
             // 
             // btnEmployer
             // 
@@ -137,6 +138,7 @@
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnCandidates
             // 

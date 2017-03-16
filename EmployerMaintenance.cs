@@ -15,6 +15,7 @@ namespace LookingGlass
         public EmployerMaintenance()
         {
             InitializeComponent();
+            
         }
 
         private void btnAddEmployer_Click(object sender, EventArgs e)
@@ -64,6 +65,11 @@ namespace LookingGlass
             btnDeleteEmployer.Enabled = true;
             btnAddEmployer.Enabled = true;
             btnReturn.Enabled = true;
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

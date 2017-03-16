@@ -206,6 +206,7 @@
             this.btnReturn.TabIndex = 14;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // txtStreetAddress
             // 

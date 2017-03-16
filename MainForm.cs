@@ -13,6 +13,8 @@ namespace LookingGlass
     public partial class MainForm : Form
     {
         private EmployerMaintenance frmEmployerMaintenance;
+        private CandidateMaintenance frmCandidateMaintenance;
+
         public MainForm()
         {
             InitializeComponent();
@@ -45,6 +47,20 @@ namespace LookingGlass
                 frmEmployerMaintenance = new EmployerMaintenance();
             }
             frmEmployerMaintenance.ShowDialog();
+        }
+
+        private void btnCandidate_Click(object sender, EventArgs e)
+        {
+            if (frmCandidateMaintenance == null)
+            {
+                frmCandidateMaintenance = new CandidateMaintenance();
+            }
+            frmCandidateMaintenance.ShowDialog();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
