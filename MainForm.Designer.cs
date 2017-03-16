@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.grpMaintenance = new System.Windows.Forms.GroupBox();
-            this.btnEmployer = new System.Windows.Forms.Button();
-            this.btnCandidate = new System.Windows.Forms.Button();
-            this.btnVacancy = new System.Windows.Forms.Button();
-            this.btnSkillVacancy = new System.Windows.Forms.Button();
-            this.btnSkillCandidate = new System.Windows.Forms.Button();
             this.btnApplicationMaintenance = new System.Windows.Forms.Button();
+            this.btnSkillCandidate = new System.Windows.Forms.Button();
+            this.btnSkillVacancy = new System.Windows.Forms.Button();
+            this.btnVacancy = new System.Windows.Forms.Button();
+            this.btnCandidate = new System.Windows.Forms.Button();
+            this.btnEmployer = new System.Windows.Forms.Button();
             this.grpReporting = new System.Windows.Forms.GroupBox();
-            this.btnVacancies = new System.Windows.Forms.Button();
-            this.btnCandidates = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnCandidates = new System.Windows.Forms.Button();
+            this.btnVacancies = new System.Windows.Forms.Button();
             this.grpMaintenance.SuspendLayout();
             this.grpReporting.SuspendLayout();
             this.SuspendLayout();
@@ -58,43 +58,15 @@
             this.grpMaintenance.TabStop = false;
             this.grpMaintenance.Text = "Maintenance";
             // 
-            // btnEmployer
+            // btnApplicationMaintenance
             // 
-            this.btnEmployer.Location = new System.Drawing.Point(33, 33);
-            this.btnEmployer.Name = "btnEmployer";
-            this.btnEmployer.Size = new System.Drawing.Size(155, 23);
-            this.btnEmployer.TabIndex = 0;
-            this.btnEmployer.Text = "Employer Maintenance";
-            this.btnEmployer.UseVisualStyleBackColor = true;
-            // 
-            // btnCandidate
-            // 
-            this.btnCandidate.Location = new System.Drawing.Point(33, 78);
-            this.btnCandidate.Name = "btnCandidate";
-            this.btnCandidate.Size = new System.Drawing.Size(155, 23);
-            this.btnCandidate.TabIndex = 1;
-            this.btnCandidate.Text = "Candidate Maintenance";
-            this.btnCandidate.UseVisualStyleBackColor = true;
-            // 
-            // btnVacancy
-            // 
-            this.btnVacancy.Location = new System.Drawing.Point(33, 123);
-            this.btnVacancy.Name = "btnVacancy";
-            this.btnVacancy.Size = new System.Drawing.Size(155, 23);
-            this.btnVacancy.TabIndex = 2;
-            this.btnVacancy.Text = "Vacancy Maintenance";
-            this.btnVacancy.UseVisualStyleBackColor = true;
-            this.btnVacancy.Click += new System.EventHandler(this.btnVacancy_Click);
-            // 
-            // btnSkillVacancy
-            // 
-            this.btnSkillVacancy.Location = new System.Drawing.Point(33, 168);
-            this.btnSkillVacancy.Name = "btnSkillVacancy";
-            this.btnSkillVacancy.Size = new System.Drawing.Size(155, 23);
-            this.btnSkillVacancy.TabIndex = 3;
-            this.btnSkillVacancy.Text = "Assign Skill to a Vacancy";
-            this.btnSkillVacancy.UseVisualStyleBackColor = true;
-            this.btnSkillVacancy.Click += new System.EventHandler(this.btnSkillVacancy_Click);
+            this.btnApplicationMaintenance.Location = new System.Drawing.Point(33, 258);
+            this.btnApplicationMaintenance.Name = "btnApplicationMaintenance";
+            this.btnApplicationMaintenance.Size = new System.Drawing.Size(155, 23);
+            this.btnApplicationMaintenance.TabIndex = 5;
+            this.btnApplicationMaintenance.Text = "Application Maintenance";
+            this.btnApplicationMaintenance.UseVisualStyleBackColor = true;
+            this.btnApplicationMaintenance.Click += new System.EventHandler(this.btnApplicationMaintenance_Click);
             // 
             // btnSkillCandidate
             // 
@@ -106,15 +78,44 @@
             this.btnSkillCandidate.UseVisualStyleBackColor = true;
             this.btnSkillCandidate.Click += new System.EventHandler(this.btnSkillCandidate_Click);
             // 
-            // btnApplicationMaintenance
+            // btnSkillVacancy
             // 
-            this.btnApplicationMaintenance.Location = new System.Drawing.Point(33, 258);
-            this.btnApplicationMaintenance.Name = "btnApplicationMaintenance";
-            this.btnApplicationMaintenance.Size = new System.Drawing.Size(155, 23);
-            this.btnApplicationMaintenance.TabIndex = 5;
-            this.btnApplicationMaintenance.Text = "Application Maintenance";
-            this.btnApplicationMaintenance.UseVisualStyleBackColor = true;
-            this.btnApplicationMaintenance.Click += new System.EventHandler(this.btnApplicationMaintenance_Click);
+            this.btnSkillVacancy.Location = new System.Drawing.Point(33, 168);
+            this.btnSkillVacancy.Name = "btnSkillVacancy";
+            this.btnSkillVacancy.Size = new System.Drawing.Size(155, 23);
+            this.btnSkillVacancy.TabIndex = 3;
+            this.btnSkillVacancy.Text = "Assign Skill to a Vacancy";
+            this.btnSkillVacancy.UseVisualStyleBackColor = true;
+            this.btnSkillVacancy.Click += new System.EventHandler(this.btnSkillVacancy_Click);
+            // 
+            // btnVacancy
+            // 
+            this.btnVacancy.Location = new System.Drawing.Point(33, 123);
+            this.btnVacancy.Name = "btnVacancy";
+            this.btnVacancy.Size = new System.Drawing.Size(155, 23);
+            this.btnVacancy.TabIndex = 2;
+            this.btnVacancy.Text = "Vacancy Maintenance";
+            this.btnVacancy.UseVisualStyleBackColor = true;
+            this.btnVacancy.Click += new System.EventHandler(this.btnVacancy_Click);
+            // 
+            // btnCandidate
+            // 
+            this.btnCandidate.Location = new System.Drawing.Point(33, 78);
+            this.btnCandidate.Name = "btnCandidate";
+            this.btnCandidate.Size = new System.Drawing.Size(155, 23);
+            this.btnCandidate.TabIndex = 1;
+            this.btnCandidate.Text = "Candidate Maintenance";
+            this.btnCandidate.UseVisualStyleBackColor = true;
+            // 
+            // btnEmployer
+            // 
+            this.btnEmployer.Location = new System.Drawing.Point(33, 33);
+            this.btnEmployer.Name = "btnEmployer";
+            this.btnEmployer.Size = new System.Drawing.Size(155, 23);
+            this.btnEmployer.TabIndex = 0;
+            this.btnEmployer.Text = "Employer Maintenance";
+            this.btnEmployer.UseVisualStyleBackColor = true;
+            this.btnEmployer.Click += new System.EventHandler(this.btnEmployer_Click);
             // 
             // grpReporting
             // 
@@ -128,14 +129,14 @@
             this.grpReporting.TabStop = false;
             this.grpReporting.Text = "Reporting";
             // 
-            // btnVacancies
+            // btnExit
             // 
-            this.btnVacancies.Location = new System.Drawing.Point(35, 48);
-            this.btnVacancies.Name = "btnVacancies";
-            this.btnVacancies.Size = new System.Drawing.Size(164, 23);
-            this.btnVacancies.TabIndex = 0;
-            this.btnVacancies.Text = "Vacancies";
-            this.btnVacancies.UseVisualStyleBackColor = true;
+            this.btnExit.Location = new System.Drawing.Point(35, 264);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(164, 23);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
             // 
             // btnCandidates
             // 
@@ -146,14 +147,14 @@
             this.btnCandidates.Text = "Candidates";
             this.btnCandidates.UseVisualStyleBackColor = true;
             // 
-            // btnExit
+            // btnVacancies
             // 
-            this.btnExit.Location = new System.Drawing.Point(35, 264);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(164, 23);
-            this.btnExit.TabIndex = 2;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnVacancies.Location = new System.Drawing.Point(35, 48);
+            this.btnVacancies.Name = "btnVacancies";
+            this.btnVacancies.Size = new System.Drawing.Size(164, 23);
+            this.btnVacancies.TabIndex = 0;
+            this.btnVacancies.Text = "Vacancies";
+            this.btnVacancies.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
