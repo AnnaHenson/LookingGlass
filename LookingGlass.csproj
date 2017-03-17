@@ -52,6 +52,17 @@
     <Compile Include="CandidateMaintenance.Designer.cs">
       <DependentUpon>CandidateMaintenance.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataModule.Designer.cs">
+      <DependentUpon>DataModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EmployerMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,14 +77,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VacancyForm.cs">
+    <Compile Include="VacancyMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VacancyForm.Designer.cs">
-      <DependentUpon>VacancyForm.cs</DependentUpon>
+    <Compile Include="VacancyMaintenance.Designer.cs">
+      <DependentUpon>VacancyMaintenance.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CandidateMaintenance.resx">
       <DependentUpon>CandidateMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataModule.resx">
+      <DependentUpon>DataModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployerMaintenance.resx">
       <DependentUpon>EmployerMaintenance.cs</DependentUpon>
@@ -90,9 +104,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="VacancyForm.resx">
-      <DependentUpon>VacancyForm.cs</DependentUpon>
+    <EmbeddedResource Include="VacancyMaintenance.resx">
+      <DependentUpon>VacancyMaintenance.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

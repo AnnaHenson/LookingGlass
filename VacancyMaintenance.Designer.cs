@@ -1,6 +1,6 @@
 ﻿namespace LookingGlass
 {
-    partial class VacancyForm
+    partial class VacancyMaintenance
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.VacancyMaintenance = new System.Windows.Forms.ListBox();
+            this.lstVacancyMaintenance = new System.Windows.Forms.ListBox();
             this.lblVacancyID = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -52,11 +52,11 @@
             // 
             // VacancyMaintenance
             // 
-            this.VacancyMaintenance.FormattingEnabled = true;
-            this.VacancyMaintenance.Location = new System.Drawing.Point(13, 25);
-            this.VacancyMaintenance.Name = "VacancyMaintenance";
-            this.VacancyMaintenance.Size = new System.Drawing.Size(236, 225);
-            this.VacancyMaintenance.TabIndex = 0;
+            this.lstVacancyMaintenance.FormattingEnabled = true;
+            this.lstVacancyMaintenance.Name = "VacancyMaintenance";
+            this.lstVacancyMaintenance.Location = new System.Drawing.Point(13, 25);
+            this.lstVacancyMaintenance.Size = new System.Drawing.Size(236, 225);
+            this.lstVacancyMaintenance.TabIndex = 0;
             // 
             // lblVacancyID
             // 
@@ -242,7 +242,7 @@
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblVacancyID);
-            this.Controls.Add(this.VacancyMaintenance);
+            this.Controls.Add(this.lstVacancyMaintenance);
             this.Name = "VacancyForm";
             this.Text = "Vacancy Maintance";
             this.ResumeLayout(false);
@@ -252,7 +252,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox VacancyMaintenance;
+        private System.Windows.Forms.ListBox lstVacancyMaintenance;
         private System.Windows.Forms.Label lblVacancyID;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblStatus;

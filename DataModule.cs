@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.OleDb;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,16 +11,11 @@ using System.Windows.Forms;
 
 namespace LookingGlass
 {
-    public partial class VacancyForm : Form
+    public partial class DataModule : Form
     {
-        public VacancyForm()
+        public DataModule()
         {
             InitializeComponent();
-        }
-
-        private void txtDescription_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
