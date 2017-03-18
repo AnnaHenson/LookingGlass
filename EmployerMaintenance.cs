@@ -12,10 +12,31 @@ namespace LookingGlass
 {
     public partial class EmployerMaintenance : Form
     {
+        private DataModule DM;
+        private MainForm frmMenu;
+        private CurrencyManager currencyManager;
+
         public EmployerMaintenance()
         {
             InitializeComponent();
+        }
+
+        public EmployerMaintenance(DataModule dm, MainForm mnu)
+        {
+            InitializeComponent();
+            DM = dm;
+            frmMenu = mnu;
+            BindControls();
+        }
+
+        private void BindControls()
+        {
             
+            lblEmployerID.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerID");
+            lstEmployer.DataSource = DM.dsLookingGlass;
+            lstEmployer.DisplayMember = "Employer.EmployerName";
+            lstEmployer.ValueMember = "Employer.EmployerName";
+            currencyManager = (CurrencyManager) this.BindingContext[DM.dsLookingGlass, "EMPLOYER"];
         }
 
         private void btnAddEmployer_Click(object sender, EventArgs e)
@@ -28,7 +49,6 @@ namespace LookingGlass
             btnDeleteEmployer.Enabled = false;
             btnUpdateEmployer.Enabled = false;
             btnReturn.Enabled = false;
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -42,7 +62,6 @@ namespace LookingGlass
             btnReturn.Enabled = true;
         }
 
-      
 
         private void btnUpdateEmployer_Click(object sender, EventArgs e)
         {
@@ -70,6 +89,22 @@ namespace LookingGlass
         private void btnReturn_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (currencyManager.Position > 0)
+            {
+                --currencyManager.Position;
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (currencyManager.Position < currencyManager.Count -1)
+            {
+                ++currencyManager.Position;
+            }
         }
     }
 }

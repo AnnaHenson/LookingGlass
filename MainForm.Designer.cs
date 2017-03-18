@@ -167,6 +167,7 @@
             this.Controls.Add(this.grpMaintenance);
             this.Name = "MainForm";
             this.Text = "Main Menu";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.grpMaintenance.ResumeLayout(false);
             this.grpReporting.ResumeLayout(false);
             this.ResumeLayout(false);

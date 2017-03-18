@@ -12,8 +12,11 @@ namespace LookingGlass
 {
     public partial class MainForm : Form
     {
+        private DataModule DM;
         private EmployerMaintenance frmEmployerMaintenance;
         private CandidateMaintenance frmCandidateMaintenance;
+        private VacancyMaintenance frmVacancyMaintenance;
+
 
         public MainForm()
         {
@@ -37,14 +40,18 @@ namespace LookingGlass
 
         private void btnVacancy_Click(object sender, EventArgs e)
         {
-
+            if (frmVacancyMaintenance == null)
+            {
+                frmVacancyMaintenance = new VacancyMaintenance();
+            }
+            frmVacancyMaintenance.ShowDialog();
         }
 
         private void btnEmployer_Click(object sender, EventArgs e)
         {
             if (frmEmployerMaintenance == null)
             {
-                frmEmployerMaintenance = new EmployerMaintenance();
+                frmEmployerMaintenance = new EmployerMaintenance(DM, this);
             }
             frmEmployerMaintenance.ShowDialog();
         }
@@ -61,6 +68,11 @@ namespace LookingGlass
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            DM = new DataModule();
         }
     }
 }
