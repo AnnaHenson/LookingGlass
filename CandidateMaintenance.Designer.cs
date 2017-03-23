@@ -133,6 +133,7 @@
             this.btnDeleteCandidate.TabIndex = 6;
             this.btnDeleteCandidate.Text = "Delete Candidate";
             this.btnDeleteCandidate.UseVisualStyleBackColor = true;
+            this.btnDeleteCandidate.Click += new System.EventHandler(this.btnDeleteCandidate_Click);
             // 
             // btnReturn
             // 
