@@ -31,7 +31,7 @@ namespace LookingGlass
 
         private void BindControls()
         {
-            
+
             lblEmployerID.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerID");
             lstEmployer.DataSource = DM.dsLookingGlass;
             lstEmployer.DisplayMember = "Employer.EmployerName";
@@ -101,7 +101,7 @@ namespace LookingGlass
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (currencyManager.Position < currencyManager.Count -1)
+            if (currencyManager.Position < currencyManager.Count - 1)
             {
                 ++currencyManager.Position;
             }
@@ -111,10 +111,87 @@ namespace LookingGlass
         {
             lblEmployerID.Text = null;
             DataRow newEmployerRow = DM.dtEmployer.NewRow();
-            if ((txtAddName.Text =="") ||(txtAddAddress.Text =="")||(txtAddSuburb.Text =="")|| (txtAddPhoneNumber.Text == ""))
+            if ((txtAddName.Text == "") || (txtAddAddress.Text == "") || (txtAddSuburb.Text == "") ||
+                (txtAddPhoneNumber.Text == ""))
             {
                 MessageBox.Show("Employer updated successfully", "Success");
             }
         }
+
+        private void btnDeleteEmployer_Click(object sender, EventArgs e)
+        {
+            DataRow deleteEmployerRow = DM.dtEmployer.Rows[currencyManager.Position];
+            DataRow[] EmployerRow = DM.dtEmployer.Select("EmployerID = " + lblEmployerID.Text);
+            if (EmployerRow.Length
+            
+           
+
+            {
+                MessageBox.Show("you may only delete employers who have no vacancies", "Error");
+            }
+
+            {
+                if (Messagebox.Show("Are you sure you want to delete this record?", "Warning,"
+                MessageBoxButtons.OKCancel) ==
+                DialogResult.OK)
+
+                {
+                    deleteEmployerRow.Delete();
+                    DM.UpdateEmployer();
+                }
+            }
+        }
     }
-}
+    
+
+
+            
+        
+    
+                   
+                    
+                
+            
+
+
+        
+    
+
+           
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+       
+        
+                    
+            
+        
+    
+
+            
+                
+            
+           
+            
+                
+            
+            
+                
+            
+        
+           
+             
+                   
+                   
+                
+            
+        
+    

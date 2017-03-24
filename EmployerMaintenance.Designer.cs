@@ -199,6 +199,7 @@
             this.btnDeleteEmployer.TabIndex = 13;
             this.btnDeleteEmployer.Text = "Delete Employer";
             this.btnDeleteEmployer.UseVisualStyleBackColor = true;
+            this.btnDeleteEmployer.Click += new System.EventHandler(this.btnDeleteEmployer_Click);
             // 
             // btnReturn
             // 
