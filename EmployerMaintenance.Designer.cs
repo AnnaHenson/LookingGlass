@@ -331,6 +331,7 @@
             this.btnSaveEmployer.TabIndex = 0;
             this.btnSaveEmployer.Text = "Save Employer";
             this.btnSaveEmployer.UseVisualStyleBackColor = true;
+            this.btnSaveEmployer.Click += new System.EventHandler(this.btnSaveEmployer_Click);
             // 
             // pnlUpdateEmployer
             // 

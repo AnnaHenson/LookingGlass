@@ -32,11 +32,13 @@ namespace LookingGlass
             lblCandidateID.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.CandidateID");
             txtLastName.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.LastName");
             txtFirstName.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.FirstName");
+            txtLastName.Enabled = false;
+            txtFirstName.Enabled = false;
             lstCandidate.DataSource = DM.dsLookingGlass;
             lstCandidate.DisplayMember = "Candidate.LastName";
             lstCandidate.ValueMember = "Candidate.LastName";
             currencyManager = (CurrencyManager) this.BindingContext[DM.dsLookingGlass, "CANDIDATE"];
-
+            
         }
 
         private void lblLastName_Click(object sender, EventArgs e)
@@ -49,15 +51,22 @@ namespace LookingGlass
             lblCandidateID.Text = null;
             DataRow newCandidateRow = DM.dtCandidate.NewRow();
             if ((txtAddLastName.Text == "") || (txtAddFirstName.Text == "") || (txtAddAddress.Text == "") ||
-                (txtAddSuburb.Text == "") || (txtAddNumber.Text == "")) ;
+                (txtAddSuburb.Text == "") || (txtAddNumber.Text == "")) 
             {
                 MessageBox.Show("Candidate added successfully", "Success");
             }
+
+            
         }
 
         private void btnAddCandidate_Click(object sender, EventArgs e)
         {
             lstCandidate.Visible = false;
+            btnPrevious.Enabled = false;
+            btnNext.Enabled = false;
+            btnReturn.Enabled = false;
+            btnUpdateCandidate.Enabled = false;
+            btnDeleteCandidate.Enabled = false;
             pnlAddCandidate.Show();
         }
 
@@ -65,11 +74,21 @@ namespace LookingGlass
         {
             pnlAddCandidate.Hide();
             lstCandidate.Visible = true;
+            btnPrevious.Enabled = true;
+            btnNext.Enabled = true;
+            btnReturn.Enabled = true;
+            btnUpdateCandidate.Enabled = true;
+            btnDeleteCandidate.Enabled = true;
         }
 
         private void btnUpdateCandidate_Click(object sender, EventArgs e)
         {
             lstCandidate.Visible = false;
+            btnPrevious.Enabled = false;
+            btnNext.Enabled = false;
+            btnAddCandidate.Enabled = false;
+            btnUpdateCandidate.Enabled = false;
+            btnDeleteCandidate.Enabled = false;
             pnlUpdateCandidate.Show();
         }
 
@@ -96,21 +115,21 @@ namespace LookingGlass
 
             else
             {
+                if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
+                        MessageBoxButtons.OKCancel) == DialogResult.OK)
 
-                }
-                if (MessageBox.Show("Are you sure you want to delete this record?", "Warning", 
-                                        MessageBoxButtons.OKCancel) == DialogResult.OK)
-              
-               {
+                {
                     deleteCandidateRow.Delete();
                     DM.UpdateCandidate();
-
                 }
-
-
             }
 
-        }         
+
+        }
+
+    }
+}
+         
 
                 
 

@@ -106,5 +106,15 @@ namespace LookingGlass
                 ++currencyManager.Position;
             }
         }
+
+        private void btnSaveEmployer_Click(object sender, EventArgs e)
+        {
+            lblEmployerID.Text = null;
+            DataRow newEmployerRow = DM.dtEmployer.NewRow();
+            if ((txtAddName.Text =="") ||(txtAddAddress.Text =="")||(txtAddSuburb.Text =="")|| (txtAddPhoneNumber.Text == ""))
+            {
+                MessageBox.Show("Employer updated successfully", "Success");
+            }
+        }
     }
 }

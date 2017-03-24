@@ -35,7 +35,7 @@
             this.btnUpdateCandidate = new System.Windows.Forms.Button();
             this.btnDeleteCandidate = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
-            this.lblCandidateNo = new System.Windows.Forms.Label();
+            this.lblCandidateID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
@@ -145,14 +145,14 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // lblCandidateNo
+            // lblCandidateID
             // 
-            this.lblCandidateNo.AutoSize = true;
-            this.lblCandidateNo.Location = new System.Drawing.Point(273, 48);
-            this.lblCandidateNo.Name = "lblCandidateNo";
-            this.lblCandidateNo.Size = new System.Drawing.Size(75, 13);
-            this.lblCandidateNo.TabIndex = 8;
-            this.lblCandidateNo.Text = "Candidate ID :";
+            this.lblCandidateID.AutoSize = true;
+            this.lblCandidateID.Location = new System.Drawing.Point(273, 48);
+            this.lblCandidateID.Name = "lblCandidateID";
+            this.lblCandidateID.Size = new System.Drawing.Size(75, 13);
+            this.lblCandidateID.TabIndex = 8;
+            this.lblCandidateID.Text = "Candidate ID :";
             // 
             // label1
             // 
@@ -519,7 +519,7 @@
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblCandidateNo);
+            this.Controls.Add(this.lblCandidateID);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnDeleteCandidate);
             this.Controls.Add(this.btnUpdateCandidate);
@@ -547,7 +547,7 @@
         private System.Windows.Forms.Button btnUpdateCandidate;
         private System.Windows.Forms.Button btnDeleteCandidate;
         private System.Windows.Forms.Button btnReturn;
-        private System.Windows.Forms.Label lblCandidateNo;
+        private System.Windows.Forms.Label lblCandidateID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblFirstName;

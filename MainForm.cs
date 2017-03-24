@@ -60,7 +60,7 @@ namespace LookingGlass
         {
             if (frmCandidateMaintenance == null)
             {
-                frmCandidateMaintenance = new CandidateMaintenance();
+                frmCandidateMaintenance = new CandidateMaintenance(DM, this);
             }
             frmCandidateMaintenance.ShowDialog();
         }
