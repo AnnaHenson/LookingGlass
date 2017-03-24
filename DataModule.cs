@@ -47,5 +47,16 @@ namespace LookingGlass
             dtVacancySkill = dsLookingGlass.Tables["VacancySkill"];
             dsLookingGlass.EnforceConstraints = true;
         }
+
+
+        public void UpdateEmployer()
+        {
+            daEmployer.Update(dtEmployer);
+        }
+
+        public void UpdateCandidate()
+        {
+            daCandidate.Update(dtCandidate);
+        }
     }
 }

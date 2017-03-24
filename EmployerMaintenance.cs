@@ -122,18 +122,16 @@ namespace LookingGlass
         {
             DataRow deleteEmployerRow = DM.dtEmployer.Rows[currencyManager.Position];
             DataRow[] EmployerRow = DM.dtEmployer.Select("EmployerID = " + lblEmployerID.Text);
-            if (EmployerRow.Length
-            
-           
-
+            if (EmployerRow.Length != 0)
             {
                 MessageBox.Show("you may only delete employers who have no vacancies", "Error");
             }
-
+            else 
             {
-                if (Messagebox.Show("Are you sure you want to delete this record?", "Warning,"
-                MessageBoxButtons.OKCancel) ==
-                DialogResult.OK)
+                if (
+                    MessageBox.Show("Are you sure you want to delete this record?", "Warning",
+                        MessageBoxButtons.OKCancel) ==
+                    DialogResult.OK)
 
                 {
                     deleteEmployerRow.Delete();
@@ -142,6 +140,8 @@ namespace LookingGlass
             }
         }
     }
+}
+
     
 
 

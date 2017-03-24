@@ -22,18 +22,24 @@ namespace LookingGlass
         {
             InitializeComponent();
             DM = dm;
-            frmMenu = mnu;
+            frmMenu = mnu; 
             BindControls();
 
         }
-
+        
         public void BindControls()
         {
-            lblCandidateID.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.CandidateID");
+            lblCandidateNo.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.CandidateID");
             txtLastName.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.LastName");
             txtFirstName.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.FirstName");
+            txtAddress.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.StreetAddress");
+            txtSuburb.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.Suburb");
+            txtPhoneNumber.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.PhoneNumber");
             txtLastName.Enabled = false;
             txtFirstName.Enabled = false;
+            txtAddress.Enabled = false;
+            txtSuburb.Enabled = false;
+            txtPhoneNumber.Enabled = false;
             lstCandidate.DataSource = DM.dsLookingGlass;
             lstCandidate.DisplayMember = "Candidate.LastName";
             lstCandidate.ValueMember = "Candidate.LastName";
@@ -50,13 +56,28 @@ namespace LookingGlass
         {
             lblCandidateID.Text = null;
             DataRow newCandidateRow = DM.dtCandidate.NewRow();
+
             if ((txtAddLastName.Text == "") || (txtAddFirstName.Text == "") || (txtAddAddress.Text == "") ||
-                (txtAddSuburb.Text == "") || (txtAddNumber.Text == "")) 
+                (txtAddSuburb.Text == "") || (txtAddNumber.Text == ""))
             {
-                MessageBox.Show("Candidate added successfully", "Success");
+                MessageBox.Show("You must enter a value for each of the text fields", "Error");
             }
 
-            
+            else
+            {
+                newCandidateRow["LastName"] = txtAddLastName.Text;
+                newCandidateRow["FirstName"] = txtAddFirstName.Text;
+                newCandidateRow["StreetAddress"] = txtAddAddress.Text;
+                newCandidateRow["Suburb"] = txtAddSuburb.Text;
+                newCandidateRow["PhoneNumber"] = txtAddNumber.Text;
+
+                DM.dtCandidate.Rows.Add(newCandidateRow);
+                DM.UpdateCandidate();
+            }
+
+            MessageBox.Show("Candidate added successfully", "Success");
+
+
         }
 
         private void btnAddCandidate_Click(object sender, EventArgs e)
@@ -67,6 +88,7 @@ namespace LookingGlass
             btnReturn.Enabled = false;
             btnUpdateCandidate.Enabled = false;
             btnDeleteCandidate.Enabled = false;
+            pnlAddCandidate.BringToFront();
             pnlAddCandidate.Show();
         }
 
@@ -89,14 +111,11 @@ namespace LookingGlass
             btnAddCandidate.Enabled = false;
             btnUpdateCandidate.Enabled = false;
             btnDeleteCandidate.Enabled = false;
+            pnlUpdateCandidate.BringToFront();
             pnlUpdateCandidate.Show();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            pnlUpdateCandidate.Hide();
-            lstCandidate.Visible = true;
         }
+        
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
@@ -127,6 +146,33 @@ namespace LookingGlass
 
         }
 
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (currencyManager.Position < currencyManager.Count - 1)
+            {
+                ++currencyManager.Position;
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (currencyManager.Position > 0)
+            {
+                --currencyManager.Position;
+            }
+            
+        }
+
+        private void btnUpdateCancel_Click(object sender, EventArgs e)
+        {
+            pnlUpdateCandidate.Hide();
+            lstCandidate.Visible = true;
+            btnPrevious.Enabled = true;
+            btnNext.Enabled = true;
+            btnReturn.Enabled = true;
+            btnAddCandidate.Enabled = true;
+            btnDeleteCandidate.Enabled = true;
+        }
     }
 }
          

@@ -36,7 +36,7 @@
             this.btnDeleteCandidate = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.lblCandidateID = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCandidateNo = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblStreetAddress = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.txtSuburbAddress = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtSuburb = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.pnlAddCandidate = new System.Windows.Forms.Panel();
@@ -73,8 +73,8 @@
             this.lblUpdateAddress = new System.Windows.Forms.Label();
             this.lblUpdateFirstName = new System.Windows.Forms.Label();
             this.lblUpdateLastName = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnUpdateCancel = new System.Windows.Forms.Button();
+            this.bntUpdateSave = new System.Windows.Forms.Button();
             this.pnlAddCandidate.SuspendLayout();
             this.pnlUpdateCandidate.SuspendLayout();
             this.SuspendLayout();
@@ -95,6 +95,7 @@
             this.btnPrevious.TabIndex = 1;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnNext
             // 
@@ -104,6 +105,7 @@
             this.btnNext.TabIndex = 2;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnAddCandidate
             // 
@@ -154,14 +156,14 @@
             this.lblCandidateID.TabIndex = 8;
             this.lblCandidateID.Text = "Candidate ID :";
             // 
-            // label1
+            // lblCandidateNo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(355, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "null";
+            this.lblCandidateNo.AutoSize = true;
+            this.lblCandidateNo.Location = new System.Drawing.Point(355, 48);
+            this.lblCandidateNo.Name = "lblCandidateNo";
+            this.lblCandidateNo.Size = new System.Drawing.Size(23, 13);
+            this.lblCandidateNo.TabIndex = 9;
+            this.lblCandidateNo.Text = "null";
             // 
             // lblLastName
             // 
@@ -223,12 +225,12 @@
             this.txtFirstName.Size = new System.Drawing.Size(169, 20);
             this.txtFirstName.TabIndex = 16;
             // 
-            // txtSuburbAddress
+            // txtAddress
             // 
-            this.txtSuburbAddress.Location = new System.Drawing.Point(351, 158);
-            this.txtSuburbAddress.Name = "txtSuburbAddress";
-            this.txtSuburbAddress.Size = new System.Drawing.Size(290, 20);
-            this.txtSuburbAddress.TabIndex = 17;
+            this.txtAddress.Location = new System.Drawing.Point(351, 158);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(290, 20);
+            this.txtAddress.TabIndex = 17;
             // 
             // txtSuburb
             // 
@@ -258,7 +260,7 @@
             this.pnlAddCandidate.Controls.Add(this.lblAddName);
             this.pnlAddCandidate.Controls.Add(this.btnAddCancel);
             this.pnlAddCandidate.Controls.Add(this.btnSaveCandidate);
-            this.pnlAddCandidate.Location = new System.Drawing.Point(250, 30);
+            this.pnlAddCandidate.Location = new System.Drawing.Point(247, 36);
             this.pnlAddCandidate.Name = "pnlAddCandidate";
             this.pnlAddCandidate.Size = new System.Drawing.Size(405, 262);
             this.pnlAddCandidate.TabIndex = 20;
@@ -378,9 +380,9 @@
             this.pnlUpdateCandidate.Controls.Add(this.lblUpdateAddress);
             this.pnlUpdateCandidate.Controls.Add(this.lblUpdateFirstName);
             this.pnlUpdateCandidate.Controls.Add(this.lblUpdateLastName);
-            this.pnlUpdateCandidate.Controls.Add(this.button1);
-            this.pnlUpdateCandidate.Controls.Add(this.button2);
-            this.pnlUpdateCandidate.Location = new System.Drawing.Point(250, 30);
+            this.pnlUpdateCandidate.Controls.Add(this.btnUpdateCancel);
+            this.pnlUpdateCandidate.Controls.Add(this.bntUpdateSave);
+            this.pnlUpdateCandidate.Location = new System.Drawing.Point(247, 36);
             this.pnlUpdateCandidate.Name = "pnlUpdateCandidate";
             this.pnlUpdateCandidate.Size = new System.Drawing.Size(405, 262);
             this.pnlUpdateCandidate.TabIndex = 21;
@@ -482,35 +484,34 @@
             this.lblUpdateLastName.TabIndex = 20;
             this.lblUpdateLastName.Text = "Last Name :";
             // 
-            // button1
+            // btnUpdateCancel
             // 
-            this.button1.Location = new System.Drawing.Point(272, 226);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnUpdateCancel.Location = new System.Drawing.Point(272, 226);
+            this.btnUpdateCancel.Name = "btnUpdateCancel";
+            this.btnUpdateCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateCancel.TabIndex = 1;
+            this.btnUpdateCancel.Text = "Cancel";
+            this.btnUpdateCancel.UseVisualStyleBackColor = true;
+            this.btnUpdateCancel.Click += new System.EventHandler(this.btnUpdateCancel_Click);
             // 
-            // button2
+            // bntUpdateSave
             // 
-            this.button2.Location = new System.Drawing.Point(19, 226);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Save Candidate";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bntUpdateSave.Location = new System.Drawing.Point(19, 226);
+            this.bntUpdateSave.Name = "bntUpdateSave";
+            this.bntUpdateSave.Size = new System.Drawing.Size(115, 23);
+            this.bntUpdateSave.TabIndex = 0;
+            this.bntUpdateSave.Text = "Save Candidate";
+            this.bntUpdateSave.UseVisualStyleBackColor = true;
             // 
             // CandidateMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 393);
-            this.Controls.Add(this.pnlAddCandidate);
             this.Controls.Add(this.pnlUpdateCandidate);
             this.Controls.Add(this.txtPhoneNumber);
             this.Controls.Add(this.txtSuburb);
-            this.Controls.Add(this.txtSuburbAddress);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.lblPhoneNumber);
@@ -518,7 +519,7 @@
             this.Controls.Add(this.lblStreetAddress);
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblCandidateNo);
             this.Controls.Add(this.lblCandidateID);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnDeleteCandidate);
@@ -527,6 +528,7 @@
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.lstCandidate);
+            this.Controls.Add(this.pnlAddCandidate);
             this.Name = "CandidateMaintenance";
             this.Text = "CandidateMaintenance";
             this.pnlAddCandidate.ResumeLayout(false);
@@ -548,7 +550,7 @@
         private System.Windows.Forms.Button btnDeleteCandidate;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Label lblCandidateID;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCandidateNo;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label lblStreetAddress;
@@ -556,7 +558,7 @@
         private System.Windows.Forms.Label lblPhoneNumber;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox txtSuburbAddress;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtSuburb;
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Panel pnlAddCandidate;
@@ -585,7 +587,7 @@
         private System.Windows.Forms.Label lblUpdateAddress;
         private System.Windows.Forms.Label lblUpdateFirstName;
         private System.Windows.Forms.Label lblUpdateLastName;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnUpdateCancel;
+        private System.Windows.Forms.Button bntUpdateSave;
     }
 }
