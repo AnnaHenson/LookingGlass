@@ -33,7 +33,11 @@ namespace LookingGlass
         {
 
             lblEmployerID.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerID");
-            // TODO : Databing reset of the controlls
+            txtEmployerName.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerName");
+            txtStreetAddress.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Street Address");
+            txtSuburb.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.suburb");
+            txtPhone.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.PhoneNumber");
+            
             lstEmployer.DataSource = DM.dsLookingGlass;
             lstEmployer.DisplayMember = "Employer.EmployerName";
             lstEmployer.ValueMember = "Employer.EmployerName";
