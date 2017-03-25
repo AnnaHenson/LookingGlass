@@ -119,7 +119,16 @@ namespace LookingGlass
             if ((txtAddName.Text == "") || (txtAddAddress.Text == "") || (txtAddSuburb.Text == "") ||
                 (txtAddPhoneNumber.Text == ""))
             {
-                //TODO : Finish saves
+                MessageBox.Show("You must enter a value for each of the text fields", "Error");
+            }
+            else
+            {
+                newEmployerRow["EmployerName"] = txtEmployerName.Text;
+                newEmployerRow["EmployerStreetAddress"] = txtStreetAddress.Text;
+                newEmployerRow["EmlpoyerSuburb"] = txtSuburb.Text;
+                newEmployerRow["EmployerPhoneNumber"] = txtPhone.Text;
+                DM.dtEmployer.Rows.Add(newEmployerRow);
+                DM.UpdateEmployer();
             }
 
             MessageBox.Show("Employer updated successfully", "Success");
