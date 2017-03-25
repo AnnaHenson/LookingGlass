@@ -33,6 +33,7 @@ namespace LookingGlass
         {
 
             lblEmployerID.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerID");
+            // TODO : Databing reset of the controlls
             lstEmployer.DataSource = DM.dsLookingGlass;
             lstEmployer.DisplayMember = "Employer.EmployerName";
             lstEmployer.ValueMember = "Employer.EmployerName";
@@ -114,8 +115,10 @@ namespace LookingGlass
             if ((txtAddName.Text == "") || (txtAddAddress.Text == "") || (txtAddSuburb.Text == "") ||
                 (txtAddPhoneNumber.Text == ""))
             {
-                MessageBox.Show("Employer updated successfully", "Success");
+                //TODO : Finish saves
             }
+
+            MessageBox.Show("Employer updated successfully", "Success");
         }
 
         private void btnDeleteEmployer_Click(object sender, EventArgs e)
