@@ -12,9 +12,14 @@ namespace LookingGlass
 {
     public partial class ApplicationMaintenance : Form
     {
-        public ApplicationMaintenance()
+        private DataModule DM;
+        private MainForm frmMenu;
+        private CurrencyManager currencyManager;
+        
+        public ApplicationMaintenance(DataModule dm, MainForm mnu)
         {
             InitializeComponent();
+            
         }
     }
 }

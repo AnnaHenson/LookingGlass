@@ -36,7 +36,7 @@ namespace LookingGlass
             txtEmployerName.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerName");
             txtStreetAddress.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.StreetAddress");
             txtSuburb.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Suburb");
-            txtPhone.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Phone"); \\Dion to check
+            txtPhone.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Phone"); //Dion to check
             lstEmployer.DataSource = DM.dsLookingGlass;
             lstEmployer.DisplayMember = "Employer.EmployerName";
             lstEmployer.ValueMember = "Employer.EmployerName";

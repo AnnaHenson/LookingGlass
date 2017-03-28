@@ -50,13 +50,14 @@
             this.btnMarkVacancyAsFilled = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // VacancyMaintenance
+            // lstVacancyMaintenance
             // 
             this.lstVacancyMaintenance.FormattingEnabled = true;
-            this.lstVacancyMaintenance.Name = "VacancyMaintenance";
             this.lstVacancyMaintenance.Location = new System.Drawing.Point(13, 25);
+            this.lstVacancyMaintenance.Name = "lstVacancyMaintenance";
             this.lstVacancyMaintenance.Size = new System.Drawing.Size(236, 225);
             this.lstVacancyMaintenance.TabIndex = 0;
+            this.lstVacancyMaintenance.Click += new System.EventHandler(this.lstVacancyMaintenance_Click);
             // 
             // lblVacancyID
             // 
@@ -125,7 +126,6 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(242, 20);
             this.txtDescription.TabIndex = 8;
-            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // txtStatus
             // 
@@ -218,7 +218,7 @@
             this.btnMarkVacancyAsFilled.Text = "Mark Vacancy as Filled";
             this.btnMarkVacancyAsFilled.UseVisualStyleBackColor = true;
             // 
-            // VacancyForm
+            // VacancyMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -243,7 +243,7 @@
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblVacancyID);
             this.Controls.Add(this.lstVacancyMaintenance);
-            this.Name = "VacancyForm";
+            this.Name = "VacancyMaintenance";
             this.Text = "Vacancy Maintance";
             this.ResumeLayout(false);
             this.PerformLayout();

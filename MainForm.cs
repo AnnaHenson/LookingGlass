@@ -42,7 +42,7 @@ namespace LookingGlass
         {
             if (frmVacancyMaintenance == null)
             {
-                frmVacancyMaintenance = new VacancyMaintenance();
+                frmVacancyMaintenance = new VacancyMaintenance(DM, this);
             }
             frmVacancyMaintenance.ShowDialog();
         }
