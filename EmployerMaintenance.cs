@@ -33,7 +33,10 @@ namespace LookingGlass
         {
 
             lblEmployerID.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerID");
-            // TODO : Databing reset of the controlls
+            txtEmployerName.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerName");
+            txtStreetAddress.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.StreetAddress");
+            txtSuburb.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Suburb");
+            txtPhone.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Phone"); \\Dion to check
             lstEmployer.DataSource = DM.dsLookingGlass;
             lstEmployer.DisplayMember = "Employer.EmployerName";
             lstEmployer.ValueMember = "Employer.EmployerName";
@@ -115,7 +118,17 @@ namespace LookingGlass
             if ((txtAddName.Text == "") || (txtAddAddress.Text == "") || (txtAddSuburb.Text == "") ||
                 (txtAddPhoneNumber.Text == ""))
             {
-                //TODO : Finish saves
+                MessageBox.Show("You must enter a value for each of the text fields", "Error");
+            }
+            else
+            {
+                newEmployerRow["EmployerName"] = txtAddName.Text;
+                newEmployerRow["StreetAddress"] = txtAddAddress.Text;
+                newEmployerRow["Suburb"] = txtAddSuburb.Text;
+                newEmployerRow["PhoneNumber"] = txtAddPhoneNumber.Text;
+
+                DM.dtEmployer.Rows.Add(newEmployerRow);
+                DM.UpdateEmployer();
             }
 
             MessageBox.Show("Employer updated successfully", "Success");

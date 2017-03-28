@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationMaintenance.Designer.cs">
+      <DependentUpon>ApplicationMaintenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssignSkillsToCandidate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignSkillsToCandidate.Designer.cs">
+      <DependentUpon>AssignSkillsToCandidate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssignSkillsToVacancy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignSkillsToVacancy.Designer.cs">
+      <DependentUpon>AssignSkillsToVacancy.cs</DependentUpon>
+    </Compile>
     <Compile Include="CandidateMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +101,15 @@
     <Compile Include="VacancyMaintenance.Designer.cs">
       <DependentUpon>VacancyMaintenance.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ApplicationMaintenance.resx">
+      <DependentUpon>ApplicationMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssignSkillsToCandidate.resx">
+      <DependentUpon>AssignSkillsToCandidate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssignSkillsToVacancy.resx">
+      <DependentUpon>AssignSkillsToVacancy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CandidateMaintenance.resx">
       <DependentUpon>CandidateMaintenance.cs</DependentUpon>
     </EmbeddedResource>
