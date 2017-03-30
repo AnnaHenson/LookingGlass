@@ -38,6 +38,10 @@ namespace LookingGlass {
         
         private VACANCYSKILLDataTable tableVACANCYSKILL;
         
+        private global::System.Data.DataRelation relationFK_SKILL_VACANCYSKILL;
+        
+        private global::System.Data.DataRelation relationVACANCY_VACANCYSKILL;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -338,6 +342,8 @@ namespace LookingGlass {
                     this.tableVACANCYSKILL.InitVars();
                 }
             }
+            this.relationFK_SKILL_VACANCYSKILL = this.Relations["FK_SKILL_VACANCYSKILL"];
+            this.relationVACANCY_VACANCYSKILL = this.Relations["VACANCY_VACANCYSKILL"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -362,6 +368,29 @@ namespace LookingGlass {
             base.Tables.Add(this.tableVACANCY);
             this.tableVACANCYSKILL = new VACANCYSKILLDataTable();
             base.Tables.Add(this.tableVACANCYSKILL);
+            global::System.Data.ForeignKeyConstraint fkc;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_SKILL_VACANCYSKILL", new global::System.Data.DataColumn[] {
+                        this.tableSKILL.SkillIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVACANCYSKILL.SkillIDColumn});
+            this.tableVACANCYSKILL.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("VACANCY_VACANCYSKILL", new global::System.Data.DataColumn[] {
+                        this.tableVACANCY.VacancyIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVACANCYSKILL.VacancyIDColumn});
+            this.tableVACANCYSKILL.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            this.relationFK_SKILL_VACANCYSKILL = new global::System.Data.DataRelation("FK_SKILL_VACANCYSKILL", new global::System.Data.DataColumn[] {
+                        this.tableSKILL.SkillIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVACANCYSKILL.SkillIDColumn}, false);
+            this.Relations.Add(this.relationFK_SKILL_VACANCYSKILL);
+            this.relationVACANCY_VACANCYSKILL = new global::System.Data.DataRelation("VACANCY_VACANCYSKILL", new global::System.Data.DataColumn[] {
+                        this.tableVACANCY.VacancyIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVACANCYSKILL.VacancyIDColumn}, false);
+            this.Relations.Add(this.relationVACANCY_VACANCYSKILL);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2395,12 +2424,18 @@ namespace LookingGlass {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VACANCYSKILLRow AddVACANCYSKILLRow(int VacancyID, int SkillID, int Years) {
+            public VACANCYSKILLRow AddVACANCYSKILLRow(VACANCYRow parentVACANCYRowByVACANCY_VACANCYSKILL, SKILLRow parentSKILLRowByFK_SKILL_VACANCYSKILL, int Years) {
                 VACANCYSKILLRow rowVACANCYSKILLRow = ((VACANCYSKILLRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        VacancyID,
-                        SkillID,
+                        null,
+                        null,
                         Years};
+                if ((parentVACANCYRowByVACANCY_VACANCYSKILL != null)) {
+                    columnValuesArray[0] = parentVACANCYRowByVACANCY_VACANCYSKILL[0];
+                }
+                if ((parentSKILLRowByFK_SKILL_VACANCYSKILL != null)) {
+                    columnValuesArray[1] = parentSKILLRowByFK_SKILL_VACANCYSKILL[0];
+                }
                 rowVACANCYSKILLRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVACANCYSKILLRow);
                 return rowVACANCYSKILLRow;
@@ -3034,6 +3069,17 @@ namespace LookingGlass {
             public void SetDescriptionNull() {
                 this[this.tableSKILL.DescriptionColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public VACANCYSKILLRow[] GetVACANCYSKILLRows() {
+                if ((this.Table.ChildRelations["FK_SKILL_VACANCYSKILL"] == null)) {
+                    return new VACANCYSKILLRow[0];
+                }
+                else {
+                    return ((VACANCYSKILLRow[])(base.GetChildRows(this.Table.ChildRelations["FK_SKILL_VACANCYSKILL"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3172,6 +3218,17 @@ namespace LookingGlass {
             public void SetEmployerIDNull() {
                 this[this.tableVACANCY.EmployerIDColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public VACANCYSKILLRow[] GetVACANCYSKILLRows() {
+                if ((this.Table.ChildRelations["VACANCY_VACANCYSKILL"] == null)) {
+                    return new VACANCYSKILLRow[0];
+                }
+                else {
+                    return ((VACANCYSKILLRow[])(base.GetChildRows(this.Table.ChildRelations["VACANCY_VACANCYSKILL"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3223,6 +3280,28 @@ namespace LookingGlass {
                 }
                 set {
                     this[this.tableVACANCYSKILL.YearsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SKILLRow SKILLRow {
+                get {
+                    return ((SKILLRow)(this.GetParentRow(this.Table.ParentRelations["FK_SKILL_VACANCYSKILL"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_SKILL_VACANCYSKILL"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public VACANCYRow VACANCYRow {
+                get {
+                    return ((VACANCYRow)(this.GetParentRow(this.Table.ParentRelations["VACANCY_VACANCYSKILL"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["VACANCY_VACANCYSKILL"]);
                 }
             }
             

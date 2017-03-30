@@ -58,5 +58,15 @@ namespace LookingGlass
         {
             daCandidate.Update(dtCandidate);
         }
+
+        public void UpdateVacancy()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateApplication()
+        {
+            daApplication.Update(dtApplication);
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -26,18 +27,46 @@ namespace LookingGlass
         }
     public void BindControls()
     {
-        txtDescription.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Description");
-        txtEmployerName.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.EmployerName");
-        txtSalary.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Salary");
-        txtCandidateFullName.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.CandidateFullName");
+        txtDescription.DataBindings.Add("Text", DM.dsLookingGlass, "Application.Description");
+        txtEmployerName.DataBindings.Add("Text", DM.dsLookingGlass, "Application.EmployerName");// all need to be appl
+        txtSalary.DataBindings.Add("Text", DM.dsLookingGlass, "Application.Salary");
+        txtCandidateFullName.DataBindings.Add("Text", DM.dsLookingGlass, "Application.CandidateFullName");
         txtDescription.Enabled = false;
         txtEmployerName.Enabled = false;
         txtSalary.Enabled = false;
         txtCandidateFullName.Enabled = false;
-        currencyManager = (CurrencyManager) this.BindingContext[DM.dsLookingGlass, "Vacancy"];
+        // datasource = DM.dslookingGlass
+        // displaymember = " Application.
+        // value member = Application.
+        currencyManager = (CurrencyManager) this.BindingContext[DM.dsLookingGlass, "APPLICATION"];
     }
-     
+
+        private void btnAddApplicatiion_Click(object sender, EventArgs e)
+        {
+            dgvVacancy.Visible = false;
+            btnReturn.Enabled = false;
+            btnDeleteApplication.Enabled = false;
+            pnlAddApplication.Show();
         }
+
+        private void btnDeleteApplication_Click(object sender, EventArgs e)
+        {
+            DataRow deleteApplicationRow = DM.dtApplication.Rows[currencyManager.Position];
+            {
+                if(MessageBox.Show("Are you sure you want to delete this record?", "Warning",MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    deleteApplicationRow.Delete();
+                    DM.UpdateApplication();
+                    MessageBox.Show("Application deleted successfully", "Success");
+                }       
+            }
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+    }
         
     }
 

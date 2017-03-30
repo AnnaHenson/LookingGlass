@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,8 @@ namespace LookingGlass
         private EmployerMaintenance frmEmployerMaintenance;
         private CandidateMaintenance frmCandidateMaintenance;
         private VacancyMaintenance frmVacancyMaintenance;
+        private ApplicationMaintenance frmApplicationMaintenance;
+        private AssignSkillsToVacancy frmVacancySkill;
 
 
         public MainForm()
@@ -25,7 +28,11 @@ namespace LookingGlass
 
         private void btnSkillVacancy_Click(object sender, EventArgs e)
         {
-
+            if (frmVacancySkill == null)
+            {
+                frmVacancySkill = new AssignSkillsToVacancy(DM, this);
+            }
+            frmVacancySkill.ShowDialog();
         }
 
         private void btnSkillCandidate_Click(object sender, EventArgs e)
@@ -35,7 +42,11 @@ namespace LookingGlass
 
         private void btnApplicationMaintenance_Click(object sender, EventArgs e)
         {
-
+            if (frmApplicationMaintenance == null)
+            {
+                frmApplicationMaintenance = new ApplicationMaintenance(DM, this);
+            }
+            frmApplicationMaintenance.ShowDialog();
         }
 
         private void btnVacancy_Click(object sender, EventArgs e)

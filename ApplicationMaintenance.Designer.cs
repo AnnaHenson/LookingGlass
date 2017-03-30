@@ -40,6 +40,7 @@
             this.btnDeleteApplication = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.dgvVacancy = new System.Windows.Forms.DataGridView();
+            this.pnlAddApplication = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVacancy)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,6 +116,7 @@
             this.btnAddApplicatiion.TabIndex = 8;
             this.btnAddApplicatiion.Text = "Add Application";
             this.btnAddApplicatiion.UseVisualStyleBackColor = true;
+            this.btnAddApplicatiion.Click += new System.EventHandler(this.btnAddApplicatiion_Click);
             // 
             // btnDeleteApplication
             // 
@@ -124,6 +126,7 @@
             this.btnDeleteApplication.TabIndex = 9;
             this.btnDeleteApplication.Text = "Delete Application";
             this.btnDeleteApplication.UseVisualStyleBackColor = true;
+            this.btnDeleteApplication.Click += new System.EventHandler(this.btnDeleteApplication_Click);
             // 
             // btnReturn
             // 
@@ -133,6 +136,7 @@
             this.btnReturn.TabIndex = 10;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // dgvVacancy
             // 
@@ -142,11 +146,19 @@
             this.dgvVacancy.Size = new System.Drawing.Size(220, 221);
             this.dgvVacancy.TabIndex = 11;
             // 
+            // pnlAddApplication
+            // 
+            this.pnlAddApplication.Location = new System.Drawing.Point(163, 273);
+            this.pnlAddApplication.Name = "pnlAddApplication";
+            this.pnlAddApplication.Size = new System.Drawing.Size(200, 100);
+            this.pnlAddApplication.TabIndex = 12;
+            // 
             // ApplicationMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 404);
+            this.Controls.Add(this.pnlAddApplication);
             this.Controls.Add(this.dgvVacancy);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnDeleteApplication);
@@ -181,5 +193,6 @@
         private System.Windows.Forms.Button btnDeleteApplication;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.DataGridView dgvVacancy;
+        private System.Windows.Forms.Panel pnlAddApplication;
     }
 }
