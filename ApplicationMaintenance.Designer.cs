@@ -40,9 +40,7 @@
             this.btnDeleteApplication = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.dgvVacancy = new System.Windows.Forms.DataGridView();
-            this.dgvCandidate = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVacancy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCandidate)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDescription
@@ -141,23 +139,14 @@
             this.dgvVacancy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVacancy.Location = new System.Drawing.Point(13, 13);
             this.dgvVacancy.Name = "dgvVacancy";
-            this.dgvVacancy.Size = new System.Drawing.Size(110, 221);
+            this.dgvVacancy.Size = new System.Drawing.Size(220, 221);
             this.dgvVacancy.TabIndex = 11;
-            // 
-            // dgvCandidate
-            // 
-            this.dgvCandidate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCandidate.Location = new System.Drawing.Point(129, 13);
-            this.dgvCandidate.Name = "dgvCandidate";
-            this.dgvCandidate.Size = new System.Drawing.Size(115, 221);
-            this.dgvCandidate.TabIndex = 12;
             // 
             // ApplicationMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 404);
-            this.Controls.Add(this.dgvCandidate);
             this.Controls.Add(this.dgvVacancy);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnDeleteApplication);
@@ -173,7 +162,6 @@
             this.Name = "ApplicationMaintenance";
             this.Text = "ApplicationMaintenance";
             ((System.ComponentModel.ISupportInitialize)(this.dgvVacancy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCandidate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,6 +181,5 @@
         private System.Windows.Forms.Button btnDeleteApplication;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.DataGridView dgvVacancy;
-        private System.Windows.Forms.DataGridView dgvCandidate;
     }
 }
