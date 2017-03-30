@@ -65,7 +65,7 @@
             this.btnAssignSkill.TabIndex = 2;
             this.btnAssignSkill.Text = "Assign Skill";
             this.btnAssignSkill.UseVisualStyleBackColor = true;
-            
+            this.btnAssignSkill.Click += new System.EventHandler(this.btnAssignSkill_Click);
             // 
             // btnRemoveSkill
             // 

@@ -61,12 +61,17 @@ namespace LookingGlass
 
         public void UpdateVacancy()
         {
-            throw new NotImplementedException();
+            daVacancy.Update(dtVacancy);
         }
 
         public void UpdateApplication()
         {
             daApplication.Update(dtApplication);
+        }
+
+        public void UpdateVacancySkill()
+        {
+            throw new NotImplementedException();
         }
     }
 }

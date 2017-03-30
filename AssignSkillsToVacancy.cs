@@ -41,17 +41,38 @@ namespace LookingGlass
 
             dgvSkill.DataSource = DM.dsLookingGlass;
             dgvSkill.DataMember = "Skill";
-
+            
             dgvVacancySkill.DataSource = DM.dsLookingGlass;
             dgvVacancySkill.DataMember = "Vacancy.Vacancy_VacancySkill";
         }
 
         private void btnAssignSkill_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (DM.dtVacancySkill.Rows[cmVacancySkill.Position]["Status"].ToString() == "Pending")
+                {
+                    DataRow newVacancySkill = DM.dtVacancySkill.NewRow();
+
+                    newVacancySkill["VacancyID"] = dgvVacancySkill["VacancyID", cmVacancy.Position].Value;
+                    newVacancySkill["SkillID"] = dgvSkill["SkillID", cmSkill.Position].Value;
+
+
+                    DM.dsLookingGlass.Tables["VacancySkill"].Rows.Add(newVacancySkill);
+                    DM.UpdateVacancySkill();
+                    MessageBox.Show("Skill assigned successfully", "Success");
+                }
             
+
+
         }
-    
+            catch (Exception exception)
+            {
+                MessageBox.Show("This skill has already been assigned to this candidate", "Error");
+
+            }
         }
+    }
     }
 
     
