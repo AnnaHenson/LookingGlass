@@ -66,7 +66,7 @@ namespace LookingGlass
 
 
         }
-            catch (Exception exception)
+            catch (Exception exception)// ask dion but think should be a constraint exception?
             {
                 MessageBox.Show("This skill has already been assigned to this candidate", "Error");
 

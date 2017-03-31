@@ -73,5 +73,10 @@ namespace LookingGlass
         {
             throw new NotImplementedException();
         }
+
+        public void UpdateCandidateSkill()
+        {
+            daCandidateSkill.Update(dtCandidateSkill);
+        }
     }
 }

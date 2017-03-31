@@ -34,10 +34,10 @@
             this.btnRemoveSkill = new System.Windows.Forms.Button();
             this.lblYears = new System.Windows.Forms.Label();
             this.txtYears = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvSkill = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCandidate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCandidateSkill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSkill)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvCandidate
@@ -64,6 +64,7 @@
             this.btnAssignSkill.TabIndex = 2;
             this.btnAssignSkill.Text = "Assign Skill";
             this.btnAssignSkill.UseVisualStyleBackColor = true;
+            this.btnAssignSkill.Click += new System.EventHandler(this.btnAssignSkill_Click);
             // 
             // btnRemoveSkill
             // 
@@ -73,6 +74,7 @@
             this.btnRemoveSkill.TabIndex = 3;
             this.btnRemoveSkill.Text = "Remove Skill";
             this.btnRemoveSkill.UseVisualStyleBackColor = true;
+            this.btnRemoveSkill.Click += new System.EventHandler(this.btnRemoveSkill_Click);
             // 
             // lblYears
             // 
@@ -90,20 +92,20 @@
             this.txtYears.Size = new System.Drawing.Size(38, 20);
             this.txtYears.TabIndex = 5;
             // 
-            // dataGridView1
+            // dgvSkill
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(431, 198);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(328, 150);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvSkill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSkill.Location = new System.Drawing.Point(431, 198);
+            this.dgvSkill.Name = "dgvSkill";
+            this.dgvSkill.Size = new System.Drawing.Size(328, 150);
+            this.dgvSkill.TabIndex = 6;
             // 
             // AssignSkillsToCandidate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 414);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvSkill);
             this.Controls.Add(this.txtYears);
             this.Controls.Add(this.lblYears);
             this.Controls.Add(this.btnRemoveSkill);
@@ -114,7 +116,7 @@
             this.Text = "AssignSkillsToCandidate";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCandidate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCandidateSkill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSkill)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,6 +130,6 @@
         private System.Windows.Forms.Button btnRemoveSkill;
         private System.Windows.Forms.Label lblYears;
         private System.Windows.Forms.TextBox txtYears;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvSkill;
     }
 }
