@@ -125,7 +125,7 @@ namespace LookingGlass
         private void btnDeleteCandidate_Click(object sender, EventArgs e)
         {
             DataRow deleteCandidateRow = DM.dtCandidate.Rows[currencyManager.Position];
-            DataRow[] CandidateRow = DM.dtCandidate.Select("CandidateID = + lblCcandidateID.Text");
+            DataRow[] CandidateRow = DM.dtApplication.Select("CandidateID = "+ lblCandidateNo.Text);
             if (CandidateRow.Length != 0)
 
             {

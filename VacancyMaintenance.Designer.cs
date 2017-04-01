@@ -235,6 +235,7 @@
             this.btnMarkVacancyAsFilled.TabIndex = 19;
             this.btnMarkVacancyAsFilled.Text = "Mark Vacancy as Filled";
             this.btnMarkVacancyAsFilled.UseVisualStyleBackColor = true;
+            this.btnMarkVacancyAsFilled.Click += new System.EventHandler(this.btnMarkVacancyAsFilled_Click);
             // 
             // pnlAddVacancy
             // 

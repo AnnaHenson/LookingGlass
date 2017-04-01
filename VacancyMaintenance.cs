@@ -161,5 +161,13 @@ namespace LookingGlass
             }
 
         }
+
+        private void btnMarkVacancyAsFilled_Click(object sender, EventArgs e)
+        {
+            DataRow vacancyRow = DM.dtVacancy.Rows[currencyManager.Position];
+            vacancyRow["status"] = "filled";
+            DM.UpdateVacancy();
+            MessageBox.Show("Vacancy statuts change to filled successfully", "Success");
+        }
     }
 }

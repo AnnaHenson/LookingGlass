@@ -34,9 +34,9 @@ namespace LookingGlass
 
             lblEmployerID.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerID");
             txtEmployerName.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerName");
-            txtStreetAddress.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.StreetAddress");
+            txtStreetAddress.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Street Address");
             txtSuburb.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Suburb");
-            txtPhone.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Phone"); //Dion to check
+            txtPhone.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.PhoneNumber"); 
             lstEmployer.DataSource = DM.dsLookingGlass;
             lstEmployer.DisplayMember = "Employer.EmployerName";
             lstEmployer.ValueMember = "Employer.EmployerName";
@@ -123,7 +123,7 @@ namespace LookingGlass
             else
             {
                 newEmployerRow["EmployerName"] = txtAddName.Text;
-                newEmployerRow["StreetAddress"] = txtAddAddress.Text;
+                newEmployerRow["Street Address"] = txtAddAddress.Text;
                 newEmployerRow["Suburb"] = txtAddSuburb.Text;
                 newEmployerRow["PhoneNumber"] = txtAddPhoneNumber.Text;
 
@@ -137,7 +137,7 @@ namespace LookingGlass
         private void btnDeleteEmployer_Click(object sender, EventArgs e)
         {
             DataRow deleteEmployerRow = DM.dtEmployer.Rows[currencyManager.Position];
-            DataRow[] EmployerRow = DM.dtEmployer.Select("EmployerID = " + lblEmployerID.Text);
+            DataRow[] EmployerRow = DM.dtVacancy.Select("EmployerID = " + lblEmployerID.Text);
             if (EmployerRow.Length != 0)
             {
                 MessageBox.Show("you may only delete employers who have no vacancies", "Error");
