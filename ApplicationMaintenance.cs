@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
@@ -27,10 +28,8 @@ namespace LookingGlass
         }
     public void BindControls()
     {
-        txtDescription.DataBindings.Add("Text", DM.dsLookingGlass, "Application.Description");
-        txtEmployerName.DataBindings.Add("Text", DM.dsLookingGlass, "Application.EmployerName");// all need to be appl
-        txtSalary.DataBindings.Add("Text", DM.dsLookingGlass, "Application.Salary");
-        txtCandidateFullName.DataBindings.Add("Text", DM.dsLookingGlass, "Application.CandidateFullName");
+        dgvVacancy.DataSource = DM.dsLookingGlass;
+        dgvVacancy.DataMember = "Application";
         txtDescription.Enabled = false;
         txtEmployerName.Enabled = false;
         txtSalary.Enabled = false;
@@ -47,6 +46,8 @@ namespace LookingGlass
             btnReturn.Enabled = false;
             btnDeleteApplication.Enabled = false;
             pnlAddApplication.Show();
+            LoadCandidate();
+            LoadVacancy();
         }
 
         private void btnDeleteApplication_Click(object sender, EventArgs e)
@@ -65,6 +66,49 @@ namespace LookingGlass
         private void btnReturn_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void LoadCandidate()
+        {
+            cboCandidateName.DataSource = DM.dsLookingGlass;
+            cboCandidateName.DisplayMember = "Candidate.LastName";
+            cboCandidateId.DataSource = DM.dsLookingGlass;
+            cboCandidateId.DisplayMember = "Candidate.CandidateId";
+
+        }
+
+        private void LoadVacancy()
+        {
+            cboVacancyId.DataSource = DM.dsLookingGlass;
+            cboVacancyId.DisplayMember = "Vacancy.VacancyId";
+            cboVacancyDescription.DataSource = DM.dsLookingGlass;
+            cboVacancyDescription.DisplayMember = "Vacancy.Description";
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            pnlAddApplication.Hide();
+            dgvVacancy.Visible = true;
+            btnReturn.Enabled = true;
+            btnDeleteApplication.Enabled = true;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            DataRow newApplicationRow = DM.dtApplication.NewRow();
+
+            try
+            {
+                newApplicationRow["VacancyID"] = cboVacancyId.Text;
+                newApplicationRow["CandidateID"] = cboCandidateId.Text;
+                DM.dtApplication.Rows.Add(newApplicationRow);
+                MessageBox.Show("Aplication added successfully", "Success");
+            }
+            catch (ConstraintException exception)
+            {
+                MessageBox.Show("This candidate has already applied for this vacancy", "Error");
+            }
         }
     }
         
