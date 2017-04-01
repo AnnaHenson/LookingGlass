@@ -45,6 +45,9 @@ namespace LookingGlass
             dtSkill = dsLookingGlass.Tables["Skill"];
             dtVacancy = dsLookingGlass.Tables["Vacancy"];
             dtVacancySkill = dsLookingGlass.Tables["VacancySkill"];
+            EmployerView = new DataView(dtEmployer);
+            EmployerView.Sort = "EmployerID";
+
             dsLookingGlass.EnforceConstraints = true;
         }
 

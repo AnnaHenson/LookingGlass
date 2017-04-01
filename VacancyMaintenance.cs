@@ -17,6 +17,7 @@ namespace LookingGlass
         private DataModule DM;
         private MainForm frmMnu;
         private CurrencyManager currencyManager;
+        private CurrencyManager cmEmployer;
 
         public VacancyMaintenance(DataModule dm, MainForm mnu)
         {
@@ -33,7 +34,6 @@ namespace LookingGlass
             txtStatus.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Status");
             txtSalary.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Salary");
             txtEmpoyerID.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.EmployerID");
-            // txtEmployerName.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.EmployerName");
             txtVacancyID.Enabled = false;
             txtDescription.Enabled = false;
             txtStatus.Enabled = false;
@@ -43,12 +43,123 @@ namespace LookingGlass
             lstVacancyMaintenance.DataSource = DM.dsLookingGlass;
             lstVacancyMaintenance.DisplayMember = "Vacancy.Description";
             lstVacancyMaintenance.ValueMember = "Vacancy.Description";
+            cmEmployer = (CurrencyManager) this.BindingContext[DM.dsLookingGlass, "EMPLOYER"];
             currencyManager = (CurrencyManager) this.BindingContext[DM.dsLookingGlass, "VACANCY"];
         }
 
         private void lstVacancyMaintenance_Click(object sender, EventArgs e)
         {
-            //TODO copy from CAT from.
+            int anEmnployerID = Convert.ToInt32(txtEmpoyerID.Text);
+            cmEmployer.Position = DM.EmployerView.Find(anEmnployerID);
+            DataRow drEmployer = DM.dtEmployer.Rows[cmEmployer.Position];
+            txtEmployerName.Text = drEmployer["EmployerName"].ToString();
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (currencyManager.Position > 0)
+            {
+                --currencyManager.Position;
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (currencyManager.Position < currencyManager.Count -1)
+            {
+                ++currencyManager.Position;
+            }
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnDeleteVacancy_Click(object sender, EventArgs e)
+        {
+            DataRow deleteVacancyRow = DM.dtVacancy.Rows[currencyManager.Position];
+            DataRow[] ApplicationRow = DM.dtApplication.Select("VacancyID = "+ txtVacancyID.Text);
+            if (ApplicationRow.Length != 0)
+            {
+                MessageBox.Show("You may only delete vacancies that have no applications", "Error");
+            }
+            else
+            {
+                if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",MessageBoxButtons.OKCancel)== DialogResult.OK)
+                {
+                    deleteVacancyRow.Delete();
+                    DM.UpdateVacancy();
+                }
+            }
+        }
+
+        private void btnAddVacancy_Click(object sender, EventArgs e)
+        {
+            lstVacancyMaintenance.Visible = false;
+            lstVacancyMaintenance.Enabled = false;
+            lstVacancyMaintenance.SelectedItem = null;
+            btnPrevious.Enabled = false;
+            btnNext.Enabled = false;
+            btnUpdateVacancy.Enabled = false;
+            btnDeleteVacancy.Enabled = false;
+            btnReturn.Enabled = false;
+            pnlAddVacancy.Show();
+            LoadEmployers();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            pnlAddVacancy.Hide();
+            lstVacancyMaintenance.Visible = true;
+            lstVacancyMaintenance.Enabled = true;
+            btnPrevious.Enabled = true;
+            btnNext.Enabled = true;
+            btnUpdateVacancy.Enabled = true;
+            btnDeleteVacancy.Enabled = true;
+            btnReturn.Enabled = true;
+        }
+
+        private void LoadEmployers()
+        {
+            cboEmployer.DataSource = DM.dsLookingGlass;
+            cboEmployer.DisplayMember = "Employer.EmployerName";
+            cboEmployer.ValueMember = "Employer.EmployerName";
+            cboAddEmployerId.DataSource = DM.dsLookingGlass;
+            cboAddEmployerId.DisplayMember = "Employer.EmployerID";
+            cboAddEmployerId.ValueMember = "Employer.EmployerID";
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            DataRow newVacancyRow = DM.dtVacancy.NewRow();
+
+            if ((txtAddDescription.Text == ""))
+            {
+                MessageBox.Show("You must type in a description", "Error");
+            }
+            else if (txtAddsalary.Text == "")
+            {
+                MessageBox.Show("You must enter a salary", "Error");
+            }
+            else
+            {
+                try
+                {
+                    newVacancyRow["Description"] = txtAddDescription.Text;
+                    newVacancyRow["Status"] = "current";
+                    newVacancyRow["Salary"] = txtAddsalary.Text;
+                    newVacancyRow["EmployerID"] = cboAddEmployerId.Text;
+                    DM.dtVacancy.Rows.Add(newVacancyRow);
+                    MessageBox.Show("Vacancy added successfully", "Success");
+                    DM.UpdateVacancy();
+                }
+                catch (FormatException exception)
+                {
+                    MessageBox.Show("Please enter a number for salary", "Error");
+                }
+            }
+
         }
     }
 }
