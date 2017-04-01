@@ -111,6 +111,15 @@ namespace LookingGlass
             btnAddCandidate.Enabled = false;
             btnUpdateCandidate.Enabled = false;
             btnDeleteCandidate.Enabled = false;
+            txtUpdateCandidateID.Enabled = false;
+
+            txtUpdateCandidateID.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.CandidateId");
+            txtUpdateLastName.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.LastName");
+            txtUpdateFirstName.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.FirstName");
+            txtUpdateAddress.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.StreetAddress");
+            txtUpdateSuburb.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.Suburb");
+            txtUpdateNumber.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.PhoneNumber");
+
             pnlUpdateCandidate.BringToFront();
             pnlUpdateCandidate.Show();
 
@@ -172,6 +181,27 @@ namespace LookingGlass
             btnReturn.Enabled = true;
             btnAddCandidate.Enabled = true;
             btnDeleteCandidate.Enabled = true;
+        }
+
+        private void bntUpdateSave_Click(object sender, EventArgs e)
+        {
+            DataRow updateCandidateRow = DM.dtCandidate.Rows[currencyManager.Position];
+            if (txtUpdateNumber.Text == "" || txtUpdateAddress.Text == "" || txtUpdateFirstName.Text == "" ||
+                txtUpdateLastName.Text == "" || txtUpdateSuburb.Text == "")
+            {
+                MessageBox.Show("You must enter a value for each of the text fields", "Error");
+            }
+            else
+            {
+                updateCandidateRow["LastName"] = txtUpdateLastName.Text;
+                updateCandidateRow["FirstName"] = txtUpdateFirstName.Text;
+                updateCandidateRow["StreetAddress"] = txtUpdateAddress.Text;
+                updateCandidateRow["Suburb"] = txtUpdateSuburb.Text;
+                updateCandidateRow["Phonenumber"] = txtUpdateNumber.Text;
+                currencyManager.EndCurrentEdit();
+                DM.UpdateCandidate();
+                MessageBox.Show("Candidate successfully update.");
+            }
         }
     }
 }

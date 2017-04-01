@@ -502,6 +502,7 @@
             this.bntUpdateSave.TabIndex = 0;
             this.bntUpdateSave.Text = "Save Candidate";
             this.bntUpdateSave.UseVisualStyleBackColor = true;
+            this.bntUpdateSave.Click += new System.EventHandler(this.bntUpdateSave_Click);
             // 
             // CandidateMaintenance
             // 
