@@ -50,7 +50,7 @@ namespace LookingGlass
         private void btnAssignSkill_Click(object sender, EventArgs e)
         {
             var years = Convert.ToInt32(txtYears.Text);
-            if (years > 50 && years < 0)
+            if (years < 50 && years > 0)
             {
                 try
                 {

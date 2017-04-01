@@ -75,6 +75,7 @@
             this.btnRemoveSkill.TabIndex = 3;
             this.btnRemoveSkill.Text = "Remove Skill";
             this.btnRemoveSkill.UseVisualStyleBackColor = true;
+            this.btnRemoveSkill.Click += new System.EventHandler(this.btnRemoveSkill_Click);
             // 
             // lblYears
             // 

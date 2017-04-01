@@ -71,7 +71,7 @@ namespace LookingGlass
 
         public void UpdateVacancySkill()
         {
-            throw new NotImplementedException();
+            daVacancySkill.Update(dtVacancySkill);
         }
 
         public void UpdateCandidateSkill()
