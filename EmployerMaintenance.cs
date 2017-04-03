@@ -31,6 +31,10 @@ namespace LookingGlass
 
         private void BindControls()
         {
+            txtEmployerName.Enabled = false;
+            txtStreetAddress.Enabled = false;
+            txtSuburb.Enabled = false;
+            txtPhone.Enabled = false;
 
             lblEmployerID.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerID");
             txtEmployerName.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerName");
