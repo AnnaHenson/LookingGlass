@@ -40,9 +40,9 @@ namespace LookingGlass
             txtSalary.Enabled = false;
             txtEmpoyerID.Enabled = false;
             txtEmployerName.Enabled = false;
-            lstVacancyMaintenance.DataSource = DM.dsLookingGlass;
-            lstVacancyMaintenance.DisplayMember = "Vacancy.Description";
-            lstVacancyMaintenance.ValueMember = "Vacancy.Description";
+            lstVacancy.DataSource = DM.dsLookingGlass;
+            lstVacancy.DisplayMember = "Vacancy.Description";
+            lstVacancy.ValueMember = "Vacancy.Description";
             cmEmployer = (CurrencyManager) this.BindingContext[DM.dsLookingGlass, "EMPLOYER"];
             currencyManager = (CurrencyManager) this.BindingContext[DM.dsLookingGlass, "VACANCY"];
         }
@@ -96,9 +96,9 @@ namespace LookingGlass
 
         private void btnAddVacancy_Click(object sender, EventArgs e)
         {
-            lstVacancyMaintenance.Visible = false;
-            lstVacancyMaintenance.Enabled = false;
-            lstVacancyMaintenance.SelectedItem = null;
+            lstVacancy.Visible = false;
+            lstVacancy.Enabled = false;
+            lstVacancy.SelectedItem = null;
             btnPrevious.Enabled = false;
             btnNext.Enabled = false;
             btnUpdateVacancy.Enabled = false;
@@ -111,8 +111,8 @@ namespace LookingGlass
         private void btnCancel_Click(object sender, EventArgs e)
         {
             pnlAddVacancy.Hide();
-            lstVacancyMaintenance.Visible = true;
-            lstVacancyMaintenance.Enabled = true;
+            lstVacancy.Visible = true;
+            lstVacancy.Enabled = true;
             btnPrevious.Enabled = true;
             btnNext.Enabled = true;
             btnUpdateVacancy.Enabled = true;
@@ -154,7 +154,7 @@ namespace LookingGlass
                     MessageBox.Show("Vacancy added successfully", "Success");
                     DM.UpdateVacancy();
                 }
-                catch (FormatException exception)
+                catch (FormatException)
                 {
                     MessageBox.Show("Please enter a number for salary", "Error");
                 }
@@ -168,6 +168,36 @@ namespace LookingGlass
             vacancyRow["status"] = "filled";
             DM.UpdateVacancy();
             MessageBox.Show("Vacancy statuts change to filled successfully", "Success");
+        }
+
+        private void btnUpdateVacancy_Click(object sender, EventArgs e)
+        {
+            lstVacancy.Visible = false;
+            btnPrevious.Enabled = false;
+            btnNext.Enabled = false;
+            btnReturn.Enabled = false;
+            btnAddVacancy.Enabled = false;
+            btnDeleteVacancy.Enabled = false;
+
+            
+            txtUpdateVacancyID.Enabled = false;
+            txtUpdateStatus.Enabled = false;
+            txtUpdateEmployersName.Enabled = false;
+
+            txtUpdateVacancyID.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.VacancyID");
+            txtUpdateDescription.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Description");
+            txtUpdateStatus.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Status");
+            txtUpdateSalary.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Salary");
+            
+
+            
+            pnlUpdateVacancy.Show();
+
+        }
+
+        private void btnUpdateSaveChanges_Click(object sender, EventArgs e)
+        {
+            //To do
         }
     }
 }
