@@ -20,6 +20,7 @@ namespace LookingGlass
         private ApplicationMaintenance frmApplicationMaintenance;
         private AssignSkillsToVacancy frmVacancySkill;
         private AssignSkillsToCandidate frmSkillCandidate;
+        private CandidatesReport frmCandidatesReport;
 
 
         public MainForm()
@@ -89,6 +90,15 @@ namespace LookingGlass
         private void MainForm_Load(object sender, EventArgs e)
         {
             DM = new DataModule();
+        }
+
+        private void btnCandidates_Click(object sender, EventArgs e)
+        {
+            if (frmCandidatesReport == null)
+            {
+                frmCandidatesReport = new CandidatesReport(DM, this);
+            }
+            frmCandidatesReport.ShowDialog();
         }
     }
 }

@@ -148,6 +148,7 @@
             this.btnCandidates.TabIndex = 1;
             this.btnCandidates.Text = "Candidates";
             this.btnCandidates.UseVisualStyleBackColor = true;
+            this.btnCandidates.Click += new System.EventHandler(this.btnCandidates_Click);
             // 
             // btnVacancies
             // 
