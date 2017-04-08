@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblEmployerName = new System.Windows.Forms.Label();
@@ -50,12 +49,8 @@
             this.cboVacancyId = new System.Windows.Forms.ComboBox();
             this.lblCandiate = new System.Windows.Forms.Label();
             this.lblVacancy = new System.Windows.Forms.Label();
-            this.dataSet1 = new LookingGlass.DataSet1();
-            this.vACANCYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVacancy)).BeginInit();
             this.pnlAddApplication.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vACANCYBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDescription
@@ -159,6 +154,7 @@
             this.dgvVacancy.Name = "dgvVacancy";
             this.dgvVacancy.Size = new System.Drawing.Size(220, 221);
             this.dgvVacancy.TabIndex = 11;
+            this.dgvVacancy.SelectionChanged += new System.EventHandler(this.dgvVacancy_SelectionChanged);
             // 
             // pnlAddApplication
             // 
@@ -248,16 +244,6 @@
             this.lblVacancy.TabIndex = 0;
             this.lblVacancy.Text = "Vacancy :";
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vACANCYBindingSource
-            // 
-            this.vACANCYBindingSource.DataMember = "VACANCY";
-            this.vACANCYBindingSource.DataSource = this.dataSet1;
-            // 
             // ApplicationMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,8 +267,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvVacancy)).EndInit();
             this.pnlAddApplication.ResumeLayout(false);
             this.pnlAddApplication.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vACANCYBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,8 +287,6 @@
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.DataGridView dgvVacancy;
         private System.Windows.Forms.Panel pnlAddApplication;
-        private System.Windows.Forms.BindingSource vACANCYBindingSource;
-        private DataSet1 dataSet1;
         private System.Windows.Forms.ComboBox cboCandidateName;
         private System.Windows.Forms.ComboBox cboCandidateId;
         private System.Windows.Forms.ComboBox cboVacancyDescription;
