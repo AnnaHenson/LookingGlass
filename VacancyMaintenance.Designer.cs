@@ -61,18 +61,18 @@
             this.lblAddDescription = new System.Windows.Forms.Label();
             this.lblAddVacancyID = new System.Windows.Forms.Label();
             this.pnlUpdateVacancy = new System.Windows.Forms.Panel();
-            this.lblUpdateVacancyID = new System.Windows.Forms.Label();
-            this.lblUpdateDescription = new System.Windows.Forms.Label();
-            this.lblUpdateStatus = new System.Windows.Forms.Label();
-            this.lblUpdateSalary = new System.Windows.Forms.Label();
-            this.lblUpdateEmployerName = new System.Windows.Forms.Label();
-            this.txtUpdateVacancyID = new System.Windows.Forms.TextBox();
-            this.txtUpdateDescription = new System.Windows.Forms.TextBox();
-            this.txtUpdateStatus = new System.Windows.Forms.TextBox();
-            this.txtUpdateSalary = new System.Windows.Forms.TextBox();
-            this.txtUpdateEmployersName = new System.Windows.Forms.TextBox();
-            this.btnUpdateSaveChanges = new System.Windows.Forms.Button();
             this.btnUpdateCancel = new System.Windows.Forms.Button();
+            this.btnUpdateSaveChanges = new System.Windows.Forms.Button();
+            this.txtUpdateEmployersName = new System.Windows.Forms.TextBox();
+            this.txtUpdateSalary = new System.Windows.Forms.TextBox();
+            this.txtUpdateStatus = new System.Windows.Forms.TextBox();
+            this.txtUpdateDescription = new System.Windows.Forms.TextBox();
+            this.txtUpdateVacancyID = new System.Windows.Forms.TextBox();
+            this.lblUpdateEmployerName = new System.Windows.Forms.Label();
+            this.lblUpdateSalary = new System.Windows.Forms.Label();
+            this.lblUpdateStatus = new System.Windows.Forms.Label();
+            this.lblUpdateDescription = new System.Windows.Forms.Label();
+            this.lblUpdateVacancyID = new System.Windows.Forms.Label();
             this.pnlAddVacancy.SuspendLayout();
             this.pnlUpdateVacancy.SuspendLayout();
             this.SuspendLayout();
@@ -384,85 +384,15 @@
             this.pnlUpdateVacancy.TabIndex = 21;
             this.pnlUpdateVacancy.Visible = false;
             // 
-            // lblUpdateVacancyID
+            // btnUpdateCancel
             // 
-            this.lblUpdateVacancyID.AutoSize = true;
-            this.lblUpdateVacancyID.Location = new System.Drawing.Point(38, 18);
-            this.lblUpdateVacancyID.Name = "lblUpdateVacancyID";
-            this.lblUpdateVacancyID.Size = new System.Drawing.Size(66, 13);
-            this.lblUpdateVacancyID.TabIndex = 0;
-            this.lblUpdateVacancyID.Text = "VacancyID :";
-            // 
-            // lblUpdateDescription
-            // 
-            this.lblUpdateDescription.AutoSize = true;
-            this.lblUpdateDescription.Location = new System.Drawing.Point(38, 48);
-            this.lblUpdateDescription.Name = "lblUpdateDescription";
-            this.lblUpdateDescription.Size = new System.Drawing.Size(66, 13);
-            this.lblUpdateDescription.TabIndex = 1;
-            this.lblUpdateDescription.Text = "Description :";
-            // 
-            // lblUpdateStatus
-            // 
-            this.lblUpdateStatus.AutoSize = true;
-            this.lblUpdateStatus.Location = new System.Drawing.Point(60, 80);
-            this.lblUpdateStatus.Name = "lblUpdateStatus";
-            this.lblUpdateStatus.Size = new System.Drawing.Size(43, 13);
-            this.lblUpdateStatus.TabIndex = 2;
-            this.lblUpdateStatus.Text = "Status :";
-            // 
-            // lblUpdateSalary
-            // 
-            this.lblUpdateSalary.AutoSize = true;
-            this.lblUpdateSalary.Location = new System.Drawing.Point(62, 110);
-            this.lblUpdateSalary.Name = "lblUpdateSalary";
-            this.lblUpdateSalary.Size = new System.Drawing.Size(42, 13);
-            this.lblUpdateSalary.TabIndex = 3;
-            this.lblUpdateSalary.Text = "Salary :";
-            // 
-            // lblUpdateEmployerName
-            // 
-            this.lblUpdateEmployerName.AutoSize = true;
-            this.lblUpdateEmployerName.Location = new System.Drawing.Point(17, 140);
-            this.lblUpdateEmployerName.Name = "lblUpdateEmployerName";
-            this.lblUpdateEmployerName.Size = new System.Drawing.Size(87, 13);
-            this.lblUpdateEmployerName.TabIndex = 4;
-            this.lblUpdateEmployerName.Text = "Employer Name :";
-            // 
-            // txtUpdateVacancyID
-            // 
-            this.txtUpdateVacancyID.Location = new System.Drawing.Point(111, 13);
-            this.txtUpdateVacancyID.Name = "txtUpdateVacancyID";
-            this.txtUpdateVacancyID.Size = new System.Drawing.Size(53, 20);
-            this.txtUpdateVacancyID.TabIndex = 5;
-            // 
-            // txtUpdateDescription
-            // 
-            this.txtUpdateDescription.Location = new System.Drawing.Point(109, 48);
-            this.txtUpdateDescription.Name = "txtUpdateDescription";
-            this.txtUpdateDescription.Size = new System.Drawing.Size(218, 20);
-            this.txtUpdateDescription.TabIndex = 6;
-            // 
-            // txtUpdateStatus
-            // 
-            this.txtUpdateStatus.Location = new System.Drawing.Point(109, 79);
-            this.txtUpdateStatus.Name = "txtUpdateStatus";
-            this.txtUpdateStatus.Size = new System.Drawing.Size(100, 20);
-            this.txtUpdateStatus.TabIndex = 7;
-            // 
-            // txtUpdateSalary
-            // 
-            this.txtUpdateSalary.Location = new System.Drawing.Point(109, 107);
-            this.txtUpdateSalary.Name = "txtUpdateSalary";
-            this.txtUpdateSalary.Size = new System.Drawing.Size(100, 20);
-            this.txtUpdateSalary.TabIndex = 8;
-            // 
-            // txtUpdateEmployersName
-            // 
-            this.txtUpdateEmployersName.Location = new System.Drawing.Point(109, 140);
-            this.txtUpdateEmployersName.Name = "txtUpdateEmployersName";
-            this.txtUpdateEmployersName.Size = new System.Drawing.Size(218, 20);
-            this.txtUpdateEmployersName.TabIndex = 9;
+            this.btnUpdateCancel.Location = new System.Drawing.Point(250, 180);
+            this.btnUpdateCancel.Name = "btnUpdateCancel";
+            this.btnUpdateCancel.Size = new System.Drawing.Size(100, 23);
+            this.btnUpdateCancel.TabIndex = 11;
+            this.btnUpdateCancel.Text = "Cancel";
+            this.btnUpdateCancel.UseVisualStyleBackColor = true;
+            this.btnUpdateCancel.Click += new System.EventHandler(this.btnUpdateCancel_Click);
             // 
             // btnUpdateSaveChanges
             // 
@@ -474,14 +404,85 @@
             this.btnUpdateSaveChanges.UseVisualStyleBackColor = true;
             this.btnUpdateSaveChanges.Click += new System.EventHandler(this.btnUpdateSaveChanges_Click);
             // 
-            // btnUpdateCancel
+            // txtUpdateEmployersName
             // 
-            this.btnUpdateCancel.Location = new System.Drawing.Point(250, 180);
-            this.btnUpdateCancel.Name = "btnUpdateCancel";
-            this.btnUpdateCancel.Size = new System.Drawing.Size(100, 23);
-            this.btnUpdateCancel.TabIndex = 11;
-            this.btnUpdateCancel.Text = "Cancel";
-            this.btnUpdateCancel.UseVisualStyleBackColor = true;
+            this.txtUpdateEmployersName.Location = new System.Drawing.Point(109, 140);
+            this.txtUpdateEmployersName.Name = "txtUpdateEmployersName";
+            this.txtUpdateEmployersName.Size = new System.Drawing.Size(218, 20);
+            this.txtUpdateEmployersName.TabIndex = 9;
+            // 
+            // txtUpdateSalary
+            // 
+            this.txtUpdateSalary.Location = new System.Drawing.Point(109, 107);
+            this.txtUpdateSalary.Name = "txtUpdateSalary";
+            this.txtUpdateSalary.Size = new System.Drawing.Size(100, 20);
+            this.txtUpdateSalary.TabIndex = 8;
+            // 
+            // txtUpdateStatus
+            // 
+            this.txtUpdateStatus.Location = new System.Drawing.Point(109, 79);
+            this.txtUpdateStatus.Name = "txtUpdateStatus";
+            this.txtUpdateStatus.Size = new System.Drawing.Size(100, 20);
+            this.txtUpdateStatus.TabIndex = 7;
+            // 
+            // txtUpdateDescription
+            // 
+            this.txtUpdateDescription.Location = new System.Drawing.Point(109, 48);
+            this.txtUpdateDescription.Name = "txtUpdateDescription";
+            this.txtUpdateDescription.Size = new System.Drawing.Size(218, 20);
+            this.txtUpdateDescription.TabIndex = 6;
+            // 
+            // txtUpdateVacancyID
+            // 
+            this.txtUpdateVacancyID.Location = new System.Drawing.Point(111, 13);
+            this.txtUpdateVacancyID.Name = "txtUpdateVacancyID";
+            this.txtUpdateVacancyID.Size = new System.Drawing.Size(53, 20);
+            this.txtUpdateVacancyID.TabIndex = 5;
+            // 
+            // lblUpdateEmployerName
+            // 
+            this.lblUpdateEmployerName.AutoSize = true;
+            this.lblUpdateEmployerName.Location = new System.Drawing.Point(17, 140);
+            this.lblUpdateEmployerName.Name = "lblUpdateEmployerName";
+            this.lblUpdateEmployerName.Size = new System.Drawing.Size(87, 13);
+            this.lblUpdateEmployerName.TabIndex = 4;
+            this.lblUpdateEmployerName.Text = "Employer Name :";
+            // 
+            // lblUpdateSalary
+            // 
+            this.lblUpdateSalary.AutoSize = true;
+            this.lblUpdateSalary.Location = new System.Drawing.Point(62, 110);
+            this.lblUpdateSalary.Name = "lblUpdateSalary";
+            this.lblUpdateSalary.Size = new System.Drawing.Size(42, 13);
+            this.lblUpdateSalary.TabIndex = 3;
+            this.lblUpdateSalary.Text = "Salary :";
+            // 
+            // lblUpdateStatus
+            // 
+            this.lblUpdateStatus.AutoSize = true;
+            this.lblUpdateStatus.Location = new System.Drawing.Point(60, 80);
+            this.lblUpdateStatus.Name = "lblUpdateStatus";
+            this.lblUpdateStatus.Size = new System.Drawing.Size(43, 13);
+            this.lblUpdateStatus.TabIndex = 2;
+            this.lblUpdateStatus.Text = "Status :";
+            // 
+            // lblUpdateDescription
+            // 
+            this.lblUpdateDescription.AutoSize = true;
+            this.lblUpdateDescription.Location = new System.Drawing.Point(38, 48);
+            this.lblUpdateDescription.Name = "lblUpdateDescription";
+            this.lblUpdateDescription.Size = new System.Drawing.Size(66, 13);
+            this.lblUpdateDescription.TabIndex = 1;
+            this.lblUpdateDescription.Text = "Description :";
+            // 
+            // lblUpdateVacancyID
+            // 
+            this.lblUpdateVacancyID.AutoSize = true;
+            this.lblUpdateVacancyID.Location = new System.Drawing.Point(38, 18);
+            this.lblUpdateVacancyID.Name = "lblUpdateVacancyID";
+            this.lblUpdateVacancyID.Size = new System.Drawing.Size(66, 13);
+            this.lblUpdateVacancyID.TabIndex = 0;
+            this.lblUpdateVacancyID.Text = "VacancyID :";
             // 
             // VacancyMaintenance
             // 

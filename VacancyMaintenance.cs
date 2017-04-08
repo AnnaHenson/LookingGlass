@@ -200,7 +200,48 @@ namespace LookingGlass
 
         private void btnUpdateSaveChanges_Click(object sender, EventArgs e)
         {
-            //To do
+            DataRow UpdateVacancyRow = DM.dtVacancy.Rows[currencyManager.Position];
+
+            if ((txtUpdateDescription.Text == ""))
+            {
+                MessageBox.Show("You must type in a description", "Error");
+            }
+            else if (txtUpdateSalary.Text == "")
+            {
+                MessageBox.Show("You must enter a salary", "Error");
+            }
+            else
+            {
+                try
+                {
+                    UpdateVacancyRow["Description"] = txtUpdateDescription.Text;
+                    UpdateVacancyRow["Salary"] = txtUpdateSalary.Text;
+                    currencyManager.EndCurrentEdit();
+                    DM.UpdateVacancy();
+                    MessageBox.Show("Vacancy updated successfully", "Success");
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Please enter a number for salary", "Error");
+                }
+            }
+        }
+
+        private void btnUpdateCancel_Click(object sender, EventArgs e)
+        {
+            lstVacancy.Visible = true;
+            btnPrevious.Enabled = true;
+            btnNext.Enabled = true;
+            btnReturn.Enabled = true;
+            btnAddVacancy.Enabled = true;
+            btnDeleteVacancy.Enabled = true;
+
+
+            txtUpdateVacancyID.Enabled = true;
+            txtUpdateStatus.Enabled = true;
+            txtUpdateEmployersName.Enabled = true;
+
+            pnlUpdateVacancy.Hide();
         }
     }
 }
