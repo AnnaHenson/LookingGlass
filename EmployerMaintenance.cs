@@ -40,7 +40,14 @@ namespace LookingGlass
             txtEmployerName.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerName");
             txtStreetAddress.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Street Address");
             txtSuburb.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Suburb");
-            txtPhone.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.PhoneNumber"); 
+            txtPhone.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.PhoneNumber");
+
+            txtEditEmployerID.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerID");
+            txtEditEmployerName.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.EmployerName");
+            txtEditAddress.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Street Address");
+            txtEditSuburb.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.Suburb");
+            txtEditNumber.DataBindings.Add("Text", DM.dsLookingGlass, "Employer.PhoneNumber");
+
             lstEmployer.DataSource = DM.dsLookingGlass;
             lstEmployer.DisplayMember = "Employer.EmployerName";
             lstEmployer.ValueMember = "Employer.EmployerName";
@@ -81,6 +88,8 @@ namespace LookingGlass
             btnDeleteEmployer.Enabled = false;
             btnAddEmployer.Enabled = false;
             btnReturn.Enabled = false;
+
+            
         }
 
         private void btnUpdateCancel_Click(object sender, EventArgs e)
@@ -158,6 +167,28 @@ namespace LookingGlass
                     DM.UpdateEmployer();
                 }
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            DataRow updateEmployerDataRow = DM.dtEmployer.Rows[currencyManager.Position];
+            if ((txtEditEmployerName.Text == "") || (txtEditAddress.Text == "") || (txtEditSuburb.Text == "") ||
+                (txtEditNumber.Text == ""))
+            {
+                MessageBox.Show("You must enter a value for each of the text fields", "Error");
+            }
+            else
+            {
+                updateEmployerDataRow["EmployerName"] = txtEditEmployerName.Text;
+                updateEmployerDataRow["Street Address"] = txtEditAddress.Text;
+                updateEmployerDataRow["Suburb"] = txtEditSuburb.Text;
+                updateEmployerDataRow["PhoneNumber"] = txtEditNumber.Text;
+
+                currencyManager.EndCurrentEdit();
+                DM.UpdateEmployer();
+            }
+
+            MessageBox.Show("Employer updated successfully", "Success");
         }
     }
 }

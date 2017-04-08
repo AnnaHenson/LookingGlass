@@ -32,7 +32,7 @@
             this.btnPrintCandidates = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.printInvoices = new System.Drawing.Printing.PrintDocument();
-            this.prvInvoices = new System.Windows.Forms.PrintPreviewDialog();
+            this.prvCandidates = new System.Windows.Forms.PrintPreviewDialog();
             this.SuspendLayout();
             // 
             // btnPrintCandidates
@@ -59,16 +59,16 @@
             // 
             this.printInvoices.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printInvoices_PrintPage);
             // 
-            // prvInvoices
+            // prvCandidates
             // 
-            this.prvInvoices.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.prvInvoices.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.prvInvoices.ClientSize = new System.Drawing.Size(400, 300);
-            this.prvInvoices.Document = this.printInvoices;
-            this.prvInvoices.Enabled = true;
-            this.prvInvoices.Icon = ((System.Drawing.Icon)(resources.GetObject("prvInvoices.Icon")));
-            this.prvInvoices.Name = "prvInvoices";
-            this.prvInvoices.Visible = false;
+            this.prvCandidates.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.prvCandidates.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.prvCandidates.ClientSize = new System.Drawing.Size(400, 300);
+            this.prvCandidates.Document = this.printInvoices;
+            this.prvCandidates.Enabled = true;
+            this.prvCandidates.Icon = ((System.Drawing.Icon)(resources.GetObject("prvCandidates.Icon")));
+            this.prvCandidates.Name = "prvCandidates";
+            this.prvCandidates.Visible = false;
             // 
             // CandidatesReport
             // 
@@ -88,6 +88,6 @@
         private System.Windows.Forms.Button btnPrintCandidates;
         private System.Windows.Forms.Button btnReturn;
         private System.Drawing.Printing.PrintDocument printInvoices;
-        private System.Windows.Forms.PrintPreviewDialog prvInvoices;
+        private System.Windows.Forms.PrintPreviewDialog prvCandidates;
     }
 }

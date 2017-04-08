@@ -34,6 +34,12 @@ namespace LookingGlass
             txtStatus.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Status");
             txtSalary.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Salary");
             txtEmpoyerID.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.EmployerID");
+
+            txtUpdateVacancyID.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.VacancyID");
+            txtUpdateDescription.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Description");
+            txtUpdateStatus.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Status");
+            txtUpdateSalary.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Salary");
+
             txtVacancyID.Enabled = false;
             txtDescription.Enabled = false;
             txtStatus.Enabled = false;
@@ -184,10 +190,7 @@ namespace LookingGlass
             txtUpdateStatus.Enabled = false;
             txtUpdateEmployersName.Enabled = false;
 
-            txtUpdateVacancyID.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.VacancyID");
-            txtUpdateDescription.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Description");
-            txtUpdateStatus.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Status");
-            txtUpdateSalary.DataBindings.Add("Text", DM.dsLookingGlass, "Vacancy.Salary");
+            
             
 
             

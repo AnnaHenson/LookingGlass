@@ -158,6 +158,7 @@
             this.btnVacancies.TabIndex = 0;
             this.btnVacancies.Text = "Vacancies";
             this.btnVacancies.UseVisualStyleBackColor = true;
+            this.btnVacancies.Click += new System.EventHandler(this.btnVacancies_Click);
             // 
             // MainForm
             // 

@@ -1,6 +1,6 @@
 ﻿namespace LookingGlass
 {
-    partial class btnPrintVacancies
+    partial class VacanciesReport
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VacanciesReport));
+            this.btnPrintVacancies = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
+            this.printVacancies = new System.Drawing.Printing.PrintDocument();
+            this.prvVacancies = new System.Windows.Forms.PrintPreviewDialog();
             this.SuspendLayout();
             // 
-            // btn
+            // btnPrintVacancies
             // 
-            this.btn.Location = new System.Drawing.Point(60, 95);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(146, 23);
-            this.btn.TabIndex = 0;
-            this.btn.Text = "button1";
-            this.btn.UseVisualStyleBackColor = true;
+            this.btnPrintVacancies.Location = new System.Drawing.Point(60, 95);
+            this.btnPrintVacancies.Name = "btnPrintVacancies";
+            this.btnPrintVacancies.Size = new System.Drawing.Size(146, 23);
+            this.btnPrintVacancies.TabIndex = 0;
+            this.btnPrintVacancies.Text = "Print Vacancies";
+            this.btnPrintVacancies.UseVisualStyleBackColor = true;
+            this.btnPrintVacancies.Click += new System.EventHandler(this.btnPrintVacancies_Click);
             // 
             // btnReport
             // 
@@ -50,22 +54,39 @@
             this.btnReport.Text = "Report";
             this.btnReport.UseVisualStyleBackColor = true;
             // 
-            // btnPrintVacancies
+            // printVacancies
+            // 
+            this.printVacancies.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printVacancies_PrintPage);
+            // 
+            // prvVacancies
+            // 
+            this.prvVacancies.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.prvVacancies.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.prvVacancies.ClientSize = new System.Drawing.Size(400, 300);
+            this.prvVacancies.Document = this.printVacancies;
+            this.prvVacancies.Enabled = true;
+            this.prvVacancies.Icon = ((System.Drawing.Icon)(resources.GetObject("prvVacancies.Icon")));
+            this.prvVacancies.Name = "prvVacancies";
+            this.prvVacancies.Visible = false;
+            // 
+            // VacanciesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 175);
             this.Controls.Add(this.btnReport);
-            this.Controls.Add(this.btn);
-            this.Name = "btnPrintVacancies";
-            this.Text = "Print Vacancies";
+            this.Controls.Add(this.btnPrintVacancies);
+            this.Name = "VacanciesReport";
+            this.Text = "VacanciesReport";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btn;
+        private System.Windows.Forms.Button btnPrintVacancies;
         private System.Windows.Forms.Button btnReport;
+        private System.Drawing.Printing.PrintDocument printVacancies;
+        private System.Windows.Forms.PrintPreviewDialog prvVacancies;
     }
 }

@@ -42,6 +42,8 @@
             this.btnReturn = new System.Windows.Forms.Button();
             this.dgvVacancy = new System.Windows.Forms.DataGridView();
             this.pnlAddApplication = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.cboCandidateName = new System.Windows.Forms.ComboBox();
             this.cboCandidateId = new System.Windows.Forms.ComboBox();
             this.cboVacancyDescription = new System.Windows.Forms.ComboBox();
@@ -50,8 +52,6 @@
             this.lblVacancy = new System.Windows.Forms.Label();
             this.dataSet1 = new LookingGlass.DataSet1();
             this.vACANCYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVacancy)).BeginInit();
             this.pnlAddApplication.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -176,6 +176,26 @@
             this.pnlAddApplication.TabIndex = 12;
             this.pnlAddApplication.Visible = false;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(13, 167);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Save Application";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(288, 167);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // cboCandidateName
             // 
             this.cboCandidateName.FormattingEnabled = true;
@@ -237,26 +257,6 @@
             // 
             this.vACANCYBindingSource.DataMember = "VACANCY";
             this.vACANCYBindingSource.DataSource = this.dataSet1;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(288, 167);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(13, 167);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Save Application";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // ApplicationMaintenance
             // 

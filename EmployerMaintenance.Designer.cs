@@ -359,6 +359,7 @@
             // 
             this.txtEditEmployerID.Location = new System.Drawing.Point(151, 13);
             this.txtEditEmployerID.Name = "txtEditEmployerID";
+            this.txtEditEmployerID.ReadOnly = true;
             this.txtEditEmployerID.Size = new System.Drawing.Size(100, 20);
             this.txtEditEmployerID.TabIndex = 27;
             // 
@@ -453,6 +454,7 @@
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "Save Employer";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // EmployerMaintenance
             // 

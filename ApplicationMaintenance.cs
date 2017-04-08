@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LookingGlass
@@ -30,13 +21,12 @@ namespace LookingGlass
     {
         dgvVacancy.DataSource = DM.dsLookingGlass;
         dgvVacancy.DataMember = "Application";
+        
         txtDescription.Enabled = false;
         txtEmployerName.Enabled = false;
         txtSalary.Enabled = false;
         txtCandidateFullName.Enabled = false;
-        // datasource = DM.dslookingGlass
-        // displaymember = " Application.
-        // value member = Application.
+
         currencyManager = (CurrencyManager) this.BindingContext[DM.dsLookingGlass, "APPLICATION"];
     }
 
@@ -103,6 +93,7 @@ namespace LookingGlass
                 newApplicationRow["VacancyID"] = cboVacancyId.Text;
                 newApplicationRow["CandidateID"] = cboCandidateId.Text;
                 DM.dtApplication.Rows.Add(newApplicationRow);
+                DM.UpdateApplication();
                 MessageBox.Show("Aplication added successfully", "Success");
             }
             catch (ConstraintException exception)

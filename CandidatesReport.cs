@@ -17,7 +17,7 @@ namespace LookingGlass
         private DataModule DM;
         private MainForm frmMenu;
         private int amountOfCandidatesPrinted, pagesAmountExpected;
-        private DataRow[] invoicesToPrint;
+        private DataRow[] candidatesToPrint;
 
         public CandidatesReport(DataModule dm, MainForm mnu)
         {
@@ -34,10 +34,10 @@ namespace LookingGlass
             amountOfCandidatesPrinted = 0;
             string strFilter = "";
             string strSort = "CandidateID";
-            invoicesToPrint = DM.dsLookingGlass.Tables["CANDIDATE"].Select(strFilter, strSort,
+            candidatesToPrint = DM.dsLookingGlass.Tables["CANDIDATE"].Select(strFilter, strSort,
                 DataViewRowState.CurrentRows); // ask dion if you repeat for each table
-            pagesAmountExpected = invoicesToPrint.Length;
-            prvInvoices.Show();
+            pagesAmountExpected = candidatesToPrint.Length;
+            prvCandidates.Show();
 
 
         }
@@ -60,7 +60,7 @@ namespace LookingGlass
             Font textFontCentre = new Font("Arial", 10, FontStyle.Regular);
             Font totalSubtotal = new Font("Arial", 10, FontStyle.Regular);
             Font headingFont = new Font("Arial", 10, FontStyle.Regular);
-            DataRow drCandidate = invoicesToPrint[amountOfCandidatesPrinted]; 
+            DataRow drCandidate = candidatesToPrint[amountOfCandidatesPrinted];
             CurrencyManager cmCandidate;
             CurrencyManager cmSkill;
             CurrencyManager cmCandidateSkill;
@@ -102,28 +102,30 @@ namespace LookingGlass
 
             g.DrawString(drCandidate["Suburb"] + "", headingFont, brush, leftMargin + headingLeftMargin, topMargin +
                                                                                                          linesSoFarHeading *
-                                                                                                         textFont
-                                                                                                             .Height);
-            
+                                                                                                         textFont.Height);
+
 
             linesSoFarHeading++;
             linesSoFarHeading++;
             linesSoFarHeading++;
-            
+
 
             // Skills
-            g.DrawString("Skills", headingFont, brush, leftMargin + headingLeftMargin, topMargin + linesSoFarHeading *
-                                                                                                         textFont
-                                                                                                             .Height);
+            g.DrawString("Skills :", headingFont, brush, leftMargin + headingLeftMargin, topMargin + linesSoFarHeading *
+                                                                                       textFont
+                                                                                           .Height);
+            linesSoFarHeading++;
             linesSoFarHeading++;
 
-            DataRow[] drCandidateSkills = drCandidate.GetChildRows(DM.dtCandidate.ChildRelations["CANDIDATE_CANDIDATESKILL"]);
+            DataRow[] drCandidateSkills =
+                drCandidate.GetChildRows(DM.dtCandidate.ChildRelations["CANDIDATE_CANDIDATESKILL"]);
 
             if (drCandidateSkills.Length == 0)
             {
                 g.DrawString("No skills have been allocated to this candidate", headingFont, brush, leftMargin +
                                                                                                     headingLeftMargin,
-                    topMargin + (linesSoFarHeading * textFont.Height)); // shouls else be last    
+                    topMargin + (linesSoFarHeading * textFont.Height));
+                linesSoFarHeading++;
 
             }
             else
@@ -133,30 +135,68 @@ namespace LookingGlass
                     int aSkillID = Convert.ToInt32(drCandidateSkill["SkillID"].ToString());
                     cmSkill.Position = DM.SkillView.Find(aSkillID);
                     DataRow drSkills = DM.dtSkill.Rows[cmCandidateSkill.Position];
-                    // Print skills
-                    // Skill description - drSkills
-                    // Years -- drCandidateSkill.
+                    g.DrawString(drSkills["Description"] + "\t\t\t" + drCandidateSkill["Years"] + " Years", headingFont,
+                        brush, leftMargin +
+                               headingLeftMargin, topMargin + (linesSoFarHeading * textFont.Height));
+                    linesSoFarHeading++;
 
                 }
 
-
             }
 
+            linesSoFarHeading++;
+            linesSoFarHeading++;
+
             //Application
-            // Very simliar to above.
+            g.DrawString("Current Vacancy Applications", headingFont, brush, leftMargin + headingLeftMargin, topMargin
+                + (linesSoFarHeading * textFont.Height));
+            linesSoFarHeading++;
+            linesSoFarHeading++;
+
+            DataRow[] drCandidateApplications =
+                drCandidate.GetChildRows(DM.dtCandidate.ChildRelations["CANDIDATE_APPLICATION"]);
+
+            if (drCandidateApplications.Length == 0)
+            {
+                g.DrawString("No applications have been made by this candidate", headingFont, brush, leftMargin +
+                                                                                                     headingLeftMargin,
+                    topMargin + (linesSoFarHeading * textFont.Height));
+                linesSoFarHeading++;
+            }
+            else
+            {
+
+                foreach (DataRow drCandidateApplication in drCandidateApplications)
+                {
+                    int aVacancyID = Convert.ToInt32(drCandidateApplication["VacancyID"].ToString());
+                    cmVacancy.Position = DM.VacancyView.Find(aVacancyID);
+                    DataRow drVacancy = DM.dtVacancy.Rows[cmVacancy.Position];
 
 
+                    g.DrawString("Vacancy ID: " + drVacancy["VacancyID"] + " " + drVacancy["Description"], headingFont, brush,
+                        leftMargin +
+                        headingLeftMargin, topMargin + (linesSoFarHeading * textFont.Height));
+                    linesSoFarHeading++;
+                }
+
+            }
             ++amountOfCandidatesPrinted;
             if (amountOfCandidatesPrinted != pagesAmountExpected)
             {
                 e.HasMorePages = true;
             }
 
+
+
+
         }
+
     }
-
-
 }
+
+
+
+
             
             
            

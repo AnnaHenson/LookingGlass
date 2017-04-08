@@ -90,5 +90,10 @@ namespace LookingGlass
                 MessageBox.Show("Skill removed successfully", "Success");
             }
         }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -35,6 +35,14 @@ namespace LookingGlass
             txtAddress.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.StreetAddress");
             txtSuburb.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.Suburb");
             txtPhoneNumber.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.PhoneNumber");
+
+            txtUpdateCandidateID.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.CandidateId");
+            txtUpdateLastName.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.LastName");
+            txtUpdateFirstName.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.FirstName");
+            txtUpdateAddress.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.StreetAddress");
+            txtUpdateSuburb.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.Suburb");
+            txtUpdateNumber.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.PhoneNumber");
+
             txtLastName.Enabled = false;
             txtFirstName.Enabled = false;
             txtAddress.Enabled = false;
@@ -113,12 +121,7 @@ namespace LookingGlass
             btnDeleteCandidate.Enabled = false;
             txtUpdateCandidateID.Enabled = false;
 
-            txtUpdateCandidateID.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.CandidateId");
-            txtUpdateLastName.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.LastName");
-            txtUpdateFirstName.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.FirstName");
-            txtUpdateAddress.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.StreetAddress");
-            txtUpdateSuburb.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.Suburb");
-            txtUpdateNumber.DataBindings.Add("Text", DM.dsLookingGlass, "Candidate.PhoneNumber");
+            
 
             pnlUpdateCandidate.BringToFront();
             pnlUpdateCandidate.Show();
