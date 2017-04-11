@@ -79,10 +79,6 @@ namespace LookingGlass
             int rightmargin = e.MarginBounds.Right;
 
 
-//            int aSkillID = Convert.ToInt32(drCandidate["SkillID"].ToString());
-//            cmSkill.Position = DM.SkillView.Find(aSkillID); // get a candidates skills
-//            DataRow drSkill = DM.dtSkill.Rows[cmSkill.Position];
-
             // heading
             g.DrawString("Candidate ID: " + drCandidate["CandidateID"], headingFont, brush,
                 leftMargin + headingLeftMargin, topMargin + linesSoFarHeading * textFont.Height);
@@ -134,10 +130,19 @@ namespace LookingGlass
                 {
                     int aSkillID = Convert.ToInt32(drCandidateSkill["SkillID"].ToString());
                     cmSkill.Position = DM.SkillView.Find(aSkillID);
-                    DataRow drSkills = DM.dtSkill.Rows[cmCandidateSkill.Position];
-                    g.DrawString(drSkills["Description"] + "\t\t\t" + drCandidateSkill["Years"] + " Years", headingFont,
+                    DataRow drSkills = DM.dtSkill.Rows[cmSkill.Position];
+                    g.DrawString(drSkills["Description"].ToString(), headingFont,
                         brush, leftMargin +
                                headingLeftMargin, topMargin + (linesSoFarHeading * textFont.Height));
+                    // If they only have one year with this skill print Year otherwise print Years.
+                    string yearOrYears = "Year";
+                    if (Convert.ToInt32(drCandidateSkill["Years"]) > 1)
+                    {
+                        yearOrYears = "Years";
+                    }
+                    g.DrawString(drCandidateSkill["Years"] + " " + yearOrYears, headingFont,
+                        brush, leftMargin +
+                               headingLeftMargin + 300, topMargin + (linesSoFarHeading * textFont.Height));
                     linesSoFarHeading++;
 
                 }

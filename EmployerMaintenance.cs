@@ -165,6 +165,7 @@ namespace LookingGlass
                 {
                     deleteEmployerRow.Delete();
                     DM.UpdateEmployer();
+                    MessageBox.Show("Employer deleted successfully", "Success");
                 }
             }
         }

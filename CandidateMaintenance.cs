@@ -117,7 +117,6 @@ namespace LookingGlass
             btnPrevious.Enabled = false;
             btnNext.Enabled = false;
             btnAddCandidate.Enabled = false;
-            btnUpdateCandidate.Enabled = false;
             btnDeleteCandidate.Enabled = false;
             txtUpdateCandidateID.Enabled = false;
 
@@ -152,6 +151,7 @@ namespace LookingGlass
                 {
                     deleteCandidateRow.Delete();
                     DM.UpdateCandidate();
+                    MessageBox.Show("Candidate deleted successfully", "Success");
                 }
             }
 

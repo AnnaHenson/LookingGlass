@@ -106,15 +106,21 @@ namespace LookingGlass
                     DataRow drSkills = DM.dtSkill.Rows[cmSkill.Position];
                     if (Convert.ToInt32(drVacancySkill["Years"]) == 1)
                     {
-                        g.DrawString(drSkills["Description"] + ":\t\t\t" + drVacancySkill["Years"] + " Year", headingFont,
+                        g.DrawString(drSkills["Description"] + ":", headingFont,
                         brush, leftMargin +
                                headingLeftMargin, topMargin + (linesSoFarHeading * textFont.Height));
+                        g.DrawString(drVacancySkill["Years"] + " Year", headingFont,
+                        brush, leftMargin +
+                               headingLeftMargin + 200, topMargin + (linesSoFarHeading * textFont.Height));
                     }
                     else
                     {
-                        g.DrawString(drSkills["Description"] + ":\t\t\t" + drVacancySkill["Years"] + " Years", headingFont,
+                        g.DrawString(drSkills["Description"] + ":", headingFont,
                         brush, leftMargin +
                                headingLeftMargin, topMargin + (linesSoFarHeading * textFont.Height));
+                        g.DrawString(drVacancySkill["Years"] + " Years", headingFont,
+                        brush, leftMargin +
+                               headingLeftMargin + 200, topMargin + (linesSoFarHeading * textFont.Height));
                     }
                     
                     linesSoFarHeading++;

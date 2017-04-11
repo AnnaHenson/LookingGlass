@@ -96,6 +96,7 @@ namespace LookingGlass
                 {
                     deleteVacancyRow.Delete();
                     DM.UpdateVacancy();
+                    MessageBox.Show("Vacancy deleted successfully", "Success");
                 }
             }
         }
@@ -105,6 +106,7 @@ namespace LookingGlass
             lstVacancy.Visible = false;
             lstVacancy.Enabled = false;
             lstVacancy.SelectedItem = null;
+            txtAddVacancyID.Enabled = false;
             btnPrevious.Enabled = false;
             btnNext.Enabled = false;
             btnUpdateVacancy.Enabled = false;
@@ -157,8 +159,8 @@ namespace LookingGlass
                     newVacancyRow["Salary"] = txtAddsalary.Text;
                     newVacancyRow["EmployerID"] = cboAddEmployerId.Text;
                     DM.dtVacancy.Rows.Add(newVacancyRow);
-                    MessageBox.Show("Vacancy added successfully", "Success");
                     DM.UpdateVacancy();
+                    MessageBox.Show("Vacancy added successfully", "Success");
                 }
                 catch (FormatException)
                 {
@@ -171,9 +173,17 @@ namespace LookingGlass
         private void btnMarkVacancyAsFilled_Click(object sender, EventArgs e)
         {
             DataRow vacancyRow = DM.dtVacancy.Rows[currencyManager.Position];
-            vacancyRow["status"] = "filled";
-            DM.UpdateVacancy();
-            MessageBox.Show("Vacancy statuts change to filled successfully", "Success");
+            if ((string) vacancyRow["status"] == "filled")
+            {
+                MessageBox.Show("Vacancy is already filled", "Error");
+            }
+            else
+            {
+                vacancyRow["status"] = "filled";
+                DM.UpdateVacancy();
+                MessageBox.Show("Vacancy statuts change to filled successfully", "Success");
+            }
+            
         }
 
         private void btnUpdateVacancy_Click(object sender, EventArgs e)
@@ -209,6 +219,10 @@ namespace LookingGlass
             else if (txtUpdateSalary.Text == "")
             {
                 MessageBox.Show("You must enter a salary", "Error");
+            }
+            else if (Int32.Parse(txtUpdateSalary.Text) < 30000 || Int32.Parse(txtUpdateSalary.Text) > 200000)
+            {
+                MessageBox.Show("Salary must be between 30000 and 200000");
             }
             else
             {
