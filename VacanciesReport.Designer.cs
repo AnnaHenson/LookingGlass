@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VacanciesReport));
             this.btnPrintVacancies = new System.Windows.Forms.Button();
-            this.btnReport = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.printVacancies = new System.Drawing.Printing.PrintDocument();
             this.prvVacancies = new System.Windows.Forms.PrintPreviewDialog();
             this.SuspendLayout();
@@ -45,14 +45,15 @@
             this.btnPrintVacancies.UseVisualStyleBackColor = true;
             this.btnPrintVacancies.Click += new System.EventHandler(this.btnPrintVacancies_Click);
             // 
-            // btnReport
+            // btnReturn
             // 
-            this.btnReport.Location = new System.Drawing.Point(321, 94);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(132, 23);
-            this.btnReport.TabIndex = 1;
-            this.btnReport.Text = "Report";
-            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReturn.Location = new System.Drawing.Point(321, 94);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(132, 23);
+            this.btnReturn.TabIndex = 1;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // printVacancies
             // 
@@ -74,7 +75,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 175);
-            this.Controls.Add(this.btnReport);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnPrintVacancies);
             this.Name = "VacanciesReport";
             this.Text = "VacanciesReport";
@@ -85,7 +86,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnPrintVacancies;
-        private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Button btnReturn;
         private System.Drawing.Printing.PrintDocument printVacancies;
         private System.Windows.Forms.PrintPreviewDialog prvVacancies;
     }

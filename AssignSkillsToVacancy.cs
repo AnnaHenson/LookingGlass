@@ -58,7 +58,7 @@ namespace LookingGlass
                 }
                 catch (ConstraintException)
                 {
-                    MessageBox.Show("This skill has already been assigned to this candidate", "Error");
+                    MessageBox.Show("This skill has already been assigned to this vacancy", "Error");
                 }
             else
                 MessageBox.Show("Years should be > 1 and < 50", "Error");

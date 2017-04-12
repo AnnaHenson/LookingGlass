@@ -12,6 +12,7 @@ namespace LookingGlass
         private CurrencyManager cmVacancy;
         private CurrencyManager currencyManager;
         private MainForm frmMenu;
+        private CurrencyManager cmVacancySkill;
 
         public ApplicationMaintenance(DataModule dm, MainForm mnu)
         {
@@ -35,6 +36,7 @@ namespace LookingGlass
             cmVacancy = (CurrencyManager) BindingContext[DM.dsLookingGlass, "VACANCY"];
             cmEmployer = (CurrencyManager) BindingContext[DM.dsLookingGlass, "EMPLOYER"];
             cmCandidate = (CurrencyManager) BindingContext[DM.dsLookingGlass, "CANDIDATE"];
+            cmVacancySkill = (CurrencyManager) BindingContext[DM.dsLookingGlass, "VACANCYSKILL"];
         }
 
         private void btnAddApplicatiion_Click(object sender, EventArgs e)
@@ -91,19 +93,31 @@ namespace LookingGlass
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var newApplicationRow = DM.dtApplication.NewRow();
+            var drApplicationRow = DM.dtApplication.Rows[currencyManager.Position];
+            cmVacancy.Position = DM.VacancyView.Find(drApplicationRow["VacancyID"]);
+            var drVacancy = DM.dtVacancy.Rows[cmVacancy.Position];
 
-            try
+            if (drVacancy["status"] == "filled")
             {
-                newApplicationRow["VacancyID"] = cboVacancyId.Text;
-                newApplicationRow["CandidateID"] = cboCandidateId.Text;
-                DM.dtApplication.Rows.Add(newApplicationRow);
-                DM.UpdateApplication();
-                MessageBox.Show("Aplication added successfully", "Success");
+                MessageBox.Show("This Vacancy has already been filled.", "Error");
             }
-            catch (ConstraintException exception)
+            
+            else
             {
-                MessageBox.Show("This candidate has already applied for this vacancy", "Error");
+                var newApplicationRow = DM.dtApplication.NewRow();
+
+                try
+                {
+                    newApplicationRow["VacancyID"] = cboVacancyId.Text;
+                    newApplicationRow["CandidateID"] = cboCandidateId.Text;
+                    DM.dtApplication.Rows.Add(newApplicationRow);
+                    DM.UpdateApplication();
+                    MessageBox.Show("Aplication added successfully", "Success");
+                }
+                catch (ConstraintException exception)
+                {
+                    MessageBox.Show("This candidate has already applied for this vacancy", "Error");
+                }
             }
         }
 

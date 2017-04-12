@@ -54,6 +54,9 @@ namespace LookingGlass
             CandidateView = new DataView(dtCandidate);
             CandidateView.Sort = "CandidateID";
 
+            VacancySkillView = new DataView(dtVacancySkill);
+            VacancySkillView.Sort= "VacancyId";
+
             dsLookingGlass.EnforceConstraints = true;
         }
 

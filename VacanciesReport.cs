@@ -34,6 +34,11 @@ namespace LookingGlass
             prvVacancies.Show();
         }
 
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void printVacancies_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Graphics g = e.Graphics;
